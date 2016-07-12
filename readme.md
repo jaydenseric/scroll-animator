@@ -24,6 +24,16 @@ Be sure to polyfill:
 - `document.scrollingElement`
 - `window.requestAnimationFrame`
 
+For example:
+
+```shell
+npm install scrollingelement --save
+```
+
+```js
+import 'scrollingelement'
+```
+
 Import relevent functions:
 
 ```js
