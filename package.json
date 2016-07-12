@@ -1,6 +1,6 @@
 {
   "name": "scroll-animator",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "description": "A collection of functions for animating browser scroll.",
   "author": {
     "name": "Jayden Seric",
