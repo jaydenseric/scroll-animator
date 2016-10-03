@@ -1,6 +1,6 @@
 {
   "name": "scroll-animator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of functions for animating browser scroll.",
   "author": {
     "name": "Jayden Seric",
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://jaydenseric@github.com/jaydenseric/scroll-animator.git"
+    "url": "https://github.com/jaydenseric/scroll-animator.git"
   },
   "homepage": "https://github.com/jaydenseric/scroll-animator#readme",
   "bugs": "https://github.com/jaydenseric/scroll-animator/issues",

@@ -5,7 +5,7 @@ import getScrollMaxY from 'get-scrollmax-y'
  * A collection of functions for animating browser scroll. May require document.scrollingElement and window.requestAnimationFrame polyfills.
  * @module scrollAnimator
  * @see https://github.com/jaydenseric/scroll-animator
- * @version 1.0.0
+ * @version 1.0.1
  * @author Jayden Seric
  * @license MIT
  */
@@ -140,12 +140,12 @@ export function animateScroll (options = {}) {
  * @param {function} [options.onArrive] - Callback to run after scrolling to the target.
  */
 export function scrollToElement (options) {
-  let container = options.container || document.scrollingElement
-  let scrollWidth = container.scrollWidth
-  let scrollHeight = container.scrollHeight
-  let targetScrollPos = getTargetScrollPos(container, options.target)
-  let config = {
-    container: container,
+  const container = options.container || document.scrollingElement
+  const scrollWidth = container.scrollWidth
+  const scrollHeight = container.scrollHeight
+  const targetScrollPos = getTargetScrollPos(container, options.target)
+  const config = {
+    container,
     targetX: targetScrollPos.x,
     targetY: targetScrollPos.y,
     offsetX: options.offsetX,
