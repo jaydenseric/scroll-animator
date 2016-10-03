@@ -4,7 +4,7 @@ const pkg = require('./package.json')
 const external = Object.keys(pkg.dependencies)
 
 export default {
-  entry: 'lib/index.js',
+  entry: 'src/index.js',
   plugins: [babel()],
   external: external,
   targets: [{
@@ -13,7 +13,7 @@ export default {
     moduleName: 'scrollAnimator',
     sourceMap: true
   }, {
-    dest: pkg['jsnext:main'],
+    dest: pkg['module'],
     format: 'es',
     sourceMap: true
   }]

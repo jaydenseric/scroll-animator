@@ -44,11 +44,11 @@ import { scrollToElement } from 'scroll-animator'
 
 <a name="module_scrollAnimator.getScrollMax"></a>
 
-### scrollAnimator.getScrollMax(container) ⇒ <code>object</code>
+### scrollAnimator.getScrollMax(container) ⇒ <code>Object</code>
 Gets an element's scroll max positions.
 
 **Kind**: static method of <code>[scrollAnimator](#module_scrollAnimator)</code>  
-**Returns**: <code>object</code> - X and Y scroll max positions in pixels.  
+**Returns**: <code>Object</code> - X and Y scroll max positions in pixels.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -56,11 +56,11 @@ Gets an element's scroll max positions.
 
 <a name="module_scrollAnimator.getTargetScrollPos"></a>
 
-### scrollAnimator.getTargetScrollPos(container, target) ⇒ <code>object</code>
+### scrollAnimator.getTargetScrollPos(container, target) ⇒ <code>Object</code>
 Gets the scroll offset of an element within a container.
 
 **Kind**: static method of <code>[scrollAnimator](#module_scrollAnimator)</code>  
-**Returns**: <code>object</code> - The x and y offset in pixels.  
+**Returns**: <code>Object</code> - The x and y offset in pixels.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -89,7 +89,7 @@ Smoothly scrolls an element. Scroll interference caused by the user or another s
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| options | <code>object</code> |  | Options. |
+| options | <code>Object</code> |  | Options. |
 | [options.container] | <code>HTMLElement</code> | <code>document.scrollingElement</code> | Container element to scroll. |
 | [options.targetX] | <code>number</code> |  | Target X position within the container, defaulting to the current position. |
 | [options.targetY] | <code>number</code> |  | Target Y position within the container, defaulting to the current position. |
@@ -107,7 +107,7 @@ Scrolls a container to a target element.
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| options | <code>object</code> |  | Options. |
+| options | <code>Object</code> |  | Options. |
 | [options.container] | <code>HTMLElement</code> | <code>document.scrollingElement</code> | Container element to scroll. |
 | options.target | <code>HTMLElement</code> |  | Target element to scroll to. |
 | [options.offsetX] | <code>number</code> | <code>0</code> | Target X position offset. |
