@@ -124,6 +124,8 @@ export function animateScroll (options = {}) {
       lastY = container.scrollTop = position(startY, targetY, elapsed, duration)
       if (elapsed > duration && typeof options.onArrive === 'function') options.onArrive()
       else window.requestAnimationFrame(step)
+    } else {
+      typeof options.onInterrupt === 'function' && options.onInterrupt()
     }
   }
   step()
@@ -151,6 +153,7 @@ export function scrollToElement (options) {
     offsetX: options.offsetX,
     offsetY: options.offsetY,
     duration: options.duration,
+    onInterrupt: options.onInterrupt,
     onArrive: () => {
       // If the container scroll dimensions change, scroll afresh to the shifted target
       if (scrollWidth !== config.container.scrollWidth || scrollHeight !== config.container.scrollHeight) scrollToElement(options)
