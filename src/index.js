@@ -82,6 +82,7 @@ function position (start, end, elapsed, duration) {
  * @param {number} [options.offsetX=0] - Target X position offset.
  * @param {number} [options.offsetY=0] - Target Y position offset.
  * @param {number} [options.duration=500] - Total scroll animation duration in milliseconds.
+ * @param {function} [options.onInterrupt] - Callback to run if the scroll animation is interrupted.
  * @param {function} [options.onArrive] - Callback to run after scrolling to the target.
  */
 export function animateScroll (options = {}) {
@@ -124,8 +125,8 @@ export function animateScroll (options = {}) {
       lastY = container.scrollTop = position(startY, targetY, elapsed, duration)
       if (elapsed > duration && typeof options.onArrive === 'function') options.onArrive()
       else window.requestAnimationFrame(step)
-    } else {
-      typeof options.onInterrupt === 'function' && options.onInterrupt()
+    } else if (typeof options.onInterrupt === 'function') {
+      options.onInterrupt()
     }
   }
   step()
@@ -139,6 +140,7 @@ export function animateScroll (options = {}) {
  * @param {number} [options.offsetX=0] - Target X position offset.
  * @param {number} [options.offsetY=0] - Target Y position offset.
  * @param {number} [options.duration=500] - Total scroll animation duration in milliseconds.
+ * @param {function} [options.onInterrupt] - Callback to run if the scroll animation is interrupted.
  * @param {function} [options.onArrive] - Callback to run after scrolling to the target.
  */
 export function scrollToElement (options) {

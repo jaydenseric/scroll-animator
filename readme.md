@@ -96,8 +96,8 @@ Smoothly scrolls an element. Scroll interference caused by the user or another s
 | [options.offsetX] | <code>number</code> | <code>0</code> | Target X position offset. |
 | [options.offsetY] | <code>number</code> | <code>0</code> | Target Y position offset. |
 | [options.duration] | <code>number</code> | <code>500</code> | Total scroll animation duration in milliseconds. |
+| [options.onInterrupt] | <code>function</code> |  | Callback to run if the scroll animation is interrupted. |
 | [options.onArrive] | <code>function</code> |  | Callback to run after scrolling to the target. |
-| [options.onInterrupt] | <code>function</code> |  | Callback to run if scrolling is interrupted |
 
 <a name="module_scrollAnimator.scrollToElement"></a>
 
@@ -114,8 +114,8 @@ Scrolls a container to a target element.
 | [options.offsetX] | <code>number</code> | <code>0</code> | Target X position offset. |
 | [options.offsetY] | <code>number</code> | <code>0</code> | Target Y position offset. |
 | [options.duration] | <code>number</code> | <code>500</code> | Total scroll animation duration in milliseconds. |
+| [options.onInterrupt] | <code>function</code> |  | Callback to run if the scroll animation is interrupted. |
 | [options.onArrive] | <code>function</code> |  | Callback to run after scrolling to the target. |
-| [options.onInterrupt] | <code>function</code> |  | Callback to run if scrolling is interrupted |
 
 <a name="module_scrollAnimator..position"></a>
 
@@ -131,3 +131,4 @@ Calculates the scroll position at a given scroll animation moment.
 | end | <code>number</code> | End scroll position. |
 | elapsed | <code>number</code> | Time since beginning the scroll animation in milliseconds. |
 | duration | <code>number</code> | Total scroll animation duration in milliseconds. |
+
