@@ -5,7 +5,7 @@ import getScrollMaxY from 'get-scrollmax-y'
  * A collection of functions for animating browser scroll. May require document.scrollingElement and window.requestAnimationFrame polyfills.
  * @module scrollAnimator
  * @see https://github.com/jaydenseric/scroll-animator
- * @version 1.0.1
+ * @version 1.1.0
  * @author Jayden Seric
  * @license MIT
  */
