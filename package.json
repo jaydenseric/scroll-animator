@@ -47,7 +47,8 @@
     "husky": "^1.2.0",
     "jsdoc-md": "^1.7.0",
     "lint-staged": "^8.0.5",
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.2",
+    "size-limit": "^0.21.0"
   },
   "scripts": {
     "prepare": "npm run prepare:clean && npm run prepare:mjs && npm run prepare:js && npm run prepare:jsdoc && npm run prepare:prettier",
@@ -56,9 +57,10 @@
     "prepare:js": "babel src -d lib",
     "prepare:jsdoc": "jsdoc-md",
     "prepare:prettier": "prettier 'lib/**/*.{mjs,js}' readme.md --write",
-    "test": "npm run test:eslint && npm run test:prettier",
+    "test": "npm run test:eslint && npm run test:prettier && npm run test:size",
     "test:eslint": "eslint . --ext mjs,js",
     "test:prettier": "prettier '**/*.{json,yml,md}' -l",
+    "test:size": "size-limit",
     "prepublishOnly": "npm run prepare && npm test"
   },
   "husky": {
@@ -82,5 +84,17 @@
     "proseWrap": "never",
     "singleQuote": true,
     "semi": false
-  }
+  },
+  "size-limit": [
+    {
+      "name": "ESM",
+      "path": "lib/index.mjs",
+      "limit": "1 KB"
+    },
+    {
+      "name": "CJS",
+      "path": "lib/index.js",
+      "limit": "1 KB"
+    }
+  ]
 }

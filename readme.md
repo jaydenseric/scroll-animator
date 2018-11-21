@@ -8,6 +8,7 @@ A collection of functions for animating browser scroll.
 - Implements UMD.
 - IE 11 and modern browser support.
 - [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+- < 1 KB bundle size, guaranteed by [`size-limit`](https://npm.im/size-limit) tests.
 
 ## Setup
 

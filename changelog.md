@@ -34,6 +34,7 @@
 - Setup a linting pre-commit hook using [`husky`](https://npm.im/husky) and [`lint-staged`](https://npm.im/lint-staged).
 - Use [Badgen](https://badgen.net) and reduce the number of readme badges.
 - Configured Travis CI and added a build status readme badge.
+- Use [`size-limit`](https://npm.im/size-limit) to test bundle size is < 1 KB.
 
 ## 1.1.0
 
