@@ -25,7 +25,6 @@
     "prepare": "npm run prepare:build && npm run prepare:jsdoc",
     "prepare:build": "rollup -c",
     "prepare:jsdoc":  "jsdoc2md -t readme-template.hbs src/**/*.js > readme.md",
-    "watch": "rollup -c -w",
     "lint": "eslint .",
     "prepublish": "npm run prepare && npm run lint"
   },
