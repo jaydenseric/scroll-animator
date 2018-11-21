@@ -11,6 +11,7 @@
 
 - Prevented `package-lock.json` via `.npmrc` and `.gitignore`.
 - Shorthand package `repository` field.
+- HTTPS package author URL.
 
 ## 1.1.0
 
