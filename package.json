@@ -26,7 +26,7 @@
     "prepare:build": "rollup -c",
     "prepare:jsdoc":  "jsdoc2md -t readme-template.hbs src/**/*.js > readme.md",
     "lint": "eslint .",
-    "prepublish": "npm run prepare && npm run lint"
+    "prepublishOnly": "npm run prepare && npm run lint"
   },
   "dependencies": {
     "get-scrollmax-x": "^0.2.0",
