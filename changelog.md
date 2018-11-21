@@ -15,6 +15,7 @@
 - HTTPS package author URL.
 - Use package `prepare` script to support installation via Git (e.g. `npm install jaydenseric/scroll-animator`).
 - Removed package `watch` script.
+- Added a clean build step.
 
 ## 1.1.0
 

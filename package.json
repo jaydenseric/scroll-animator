@@ -22,7 +22,8 @@
   "module": "dist/scroll-animator.module.js",
   "sideEffects": false,
   "scripts": {
-    "prepare": "npm run prepare:build && npm run prepare:jsdoc",
+    "prepare": "npm run prepare:clean && npm run prepare:build && npm run prepare:jsdoc",
+    "prepare:clean": "rm -rf dist",
     "prepare:build": "rollup -c",
     "prepare:jsdoc":  "jsdoc2md -t readme-template.hbs src/**/*.js > readme.md",
     "lint": "eslint .",
