@@ -18,12 +18,12 @@
     "animate",
     "es6"
   ],
-  "main": "dist/scroll-animator.js",
-  "module": "dist/scroll-animator.module.js",
+  "main": "lib/scroll-animator.js",
+  "module": "lib/scroll-animator.module.js",
   "sideEffects": false,
   "scripts": {
     "prepare": "npm run prepare:clean && npm run prepare:build && npm run prepare:jsdoc",
-    "prepare:clean": "rm -rf dist",
+    "prepare:clean": "rm -rf lib",
     "prepare:build": "rollup -c",
     "prepare:jsdoc":  "jsdoc2md -t readme-template.hbs src/**/*.js > readme.md",
     "lint": "eslint .",

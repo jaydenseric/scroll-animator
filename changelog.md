@@ -2,6 +2,10 @@
 
 ## Next
 
+### Major
+
+- Renamed the published `dist` directory `lib`.
+
 ### Minor
 
 - Added a changelog in `changelog.md`.
