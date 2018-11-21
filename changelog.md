@@ -12,6 +12,7 @@
 - Prevented `package-lock.json` via `.npmrc` and `.gitignore`.
 - Shorthand package `repository` field.
 - HTTPS package author URL.
+- Use package `prepare` script to support installation via Git (e.g. `npm install jaydenseric/scroll-animator`).
 
 ## 1.1.0
 

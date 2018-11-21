@@ -22,12 +22,12 @@
   "module": "dist/scroll-animator.module.js",
   "sideEffects": false,
   "scripts": {
-    "lint": "eslint .",
-    "prebuild": "npm run lint",
-    "build": "rollup -c",
+    "prepare": "npm run prepare:build && npm run prepare:jsdoc",
+    "prepare:build": "rollup -c",
+    "prepare:jsdoc":  "jsdoc2md -t readme-template.hbs src/**/*.js > readme.md",
     "watch": "rollup -c -w",
-    "docs": "jsdoc2md -t readme-template.hbs src/**/*.js > readme.md",
-    "prepublish": "npm run build && npm run docs"
+    "lint": "eslint .",
+    "prepublish": "npm run prepare && npm run lint"
   },
   "dependencies": {
     "get-scrollmax-x": "^0.2.0",
