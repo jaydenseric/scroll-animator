@@ -6,6 +6,10 @@
 
 - Added a changelog in `changelog.md`.
 
+### Patch
+
+- Prevented `package-lock.json` via `.npmrc` and `.gitignore`.
+
 ## 1.1.0
 
 ### Minor
