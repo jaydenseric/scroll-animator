@@ -9,6 +9,7 @@
 ### Minor
 
 - Added a changelog in `changelog.md`.
+- Use package `prepare` script to support installation via Git (e.g. `npm install jaydenseric/scroll-animator`).
 - Declared the package side-effect free for [bundler tree-shaking](https://webpack.js.org/guides/tree-shaking).
 
 ### Patch
@@ -17,7 +18,6 @@
 - Shorthand package `repository` field.
 - HTTPS package author URL.
 - Use `prepublishOnly` package script instead of `prepublish`.
-- Use package `prepare` script to support installation via Git (e.g. `npm install jaydenseric/scroll-animator`).
 - Removed package `watch` script.
 - Added a clean build step.
 
