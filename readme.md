@@ -1,8 +1,6 @@
 # Scroll animator
 
-![NPM version](https://img.shields.io/npm/v/scroll-animator.svg?style=flat-square)
-![Github issues](https://img.shields.io/github/issues/jaydenseric/scroll-animator.svg?style=flat-square)
-![Github stars](https://img.shields.io/github/stars/jaydenseric/scroll-animator.svg?style=flat-square)
+![NPM version](https://img.shields.io/npm/v/scroll-animator.svg?style=flat-square) ![Github issues](https://img.shields.io/github/issues/jaydenseric/scroll-animator.svg?style=flat-square) ![Github stars](https://img.shields.io/github/stars/jaydenseric/scroll-animator.svg?style=flat-square)
 
 A collection of functions for animating browser scroll.
 
@@ -54,8 +52,7 @@ import { scrollToElement } from 'scroll-animator'
 
 ### function animateScroll
 
-Smoothly scrolls an element. Scroll interference caused by the user or
-another script cancels the animation.
+Smoothly scrolls an element. Scroll interference caused by the user or another script cancels the animation.
 
 | Parameter             | Type                                       | Description                                                                 |
 | :-------------------- | :----------------------------------------- | :-------------------------------------------------------------------------- |
