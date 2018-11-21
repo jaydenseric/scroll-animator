@@ -25,6 +25,7 @@
 - Prevented `package-lock.json` via `.npmrc` and `.gitignore`.
 - Shorthand package `repository` field.
 - HTTPS package author URL.
+- Tweaked package description and tags.
 - Whitelist files for publishing via package `files` field, instead of an `.npmignore` blacklist.
 - Use `prepublishOnly` package script instead of `prepublish`.
 - Removed package `watch` script.
