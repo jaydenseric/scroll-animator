@@ -27,8 +27,8 @@ Browserslist query: [`> 0.5%, not dead, node 6`](https://browserl.ist/?q=%3E+0.5
 
 Consider polyfilling:
 
-- [`document.scrollingElement`](https://developer.mozilla.org/docs/Web/API/document/scrollingElement)
-- [`window.requestAnimationFrame`](https://developer.mozilla.org/docs/Web/API/window/requestAnimationFrame)
+- [`document.scrollingElement`](https://caniuse.com/#feat=document-scrollingelement)
+- [`window.requestAnimationFrame`](https://caniuse.com/#feat=requestanimationframe)
 
 ## API
 
