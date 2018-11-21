@@ -1,6 +1,6 @@
 # scroll-animator changelog
 
-## Next
+## 2.0.0
 
 ### Major
 
