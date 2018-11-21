@@ -2,7 +2,9 @@ import { animateScroll } from './animateScroll'
 import { getTargetScrollPos } from './getTargetScrollPos'
 
 /**
- * Scrolls a container to a target element, using [`animateScroll`]{@link animateScroll}.
+ * Scrolls a container to a target element, using
+ * [`animateScroll`]{@link animateScroll}. The animation adapts to a moving
+ * target; handy when loading affects layout.
  * @kind function
  * @name scrollToElement
  * @param {Object} options Options.

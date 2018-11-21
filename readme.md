@@ -1,43 +1,33 @@
-# Scroll animator
+# scroll-animator
 
 [![npm version](https://badgen.net/npm/v/scroll-animator)](https://npm.im/scroll-animator) [![Build status](https://travis-ci.org/jaydenseric/scroll-animator.svg?branch=master)](https://travis-ci.org/jaydenseric/scroll-animator)
 
-A collection of functions for animating browser scroll.
+Smart, lightweight functions to animate browser scroll.
 
-- Written in ES6.
-- Implements UMD.
-- IE 11 and modern browser support.
-- [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-- < 1 KB bundle size, guaranteed by [`size-limit`](https://npm.im/size-limit) tests.
+- Scroll the page or a specific element.
+- Scroll vertically and horizontally.
+- Scroll to a target element or an arbitrary position, with an optional offset.
+- Scroll animations can be interrupted by the user or other scripts (no “fighting” animations).
+- Scroll animations adapt to a moving target; handy when loading affects layout.
+- Intuitive [`easeInOutCubic`](https://easings.net/#easeInOutCubic) animation timing; a soft acceleration and deceleration.
+- &lt; 1 KB bundle size, guaranteed by [`size-limit`](https://npm.im/size-limit) tests.
 
 ## Setup
 
-Install scroll animator in your project as an NPM dependency:
+Install with [npm](https://npmjs.com):
 
 ```shell
-npm install scroll-animator --save
+npm install scroll-animator
 ```
 
-Be sure to polyfill:
+## Support
 
-- `document.scrollingElement`
-- `window.requestAnimationFrame`
+Browserslist query: [`> 0.5%, not dead, node 6`](https://browserl.ist/?q=%3E+0.5%25%2C+not+dead%2C+node+6).
 
-For example:
+Consider polyfilling:
 
-```shell
-npm install scrollingelement --save
-```
-
-```js
-import 'scrollingelement'
-```
-
-Import relevent functions:
-
-```js
-import { scrollToElement } from 'scroll-animator'
-```
+- [`document.scrollingElement`](https://developer.mozilla.org/docs/Web/API/document/scrollingElement)
+- [`window.requestAnimationFrame`](https://developer.mozilla.org/docs/Web/API/window/requestAnimationFrame)
 
 ## API
 
@@ -48,7 +38,7 @@ import { scrollToElement } from 'scroll-animator'
 
 ### function animateScroll
 
-Smoothly scrolls an element. Scroll interference caused by the user or another script cancels the animation.
+Smoothly scrolls an element to a target position within the element. Scroll interference caused by the user or another script interrupts the animation.
 
 | Parameter             | Type                                       | Description                                                                 |
 | :-------------------- | :----------------------------------------- | :-------------------------------------------------------------------------- |
@@ -64,7 +54,7 @@ Smoothly scrolls an element. Scroll interference caused by the user or another s
 
 ### function scrollToElement
 
-Scrolls a container to a target element, using [`animateScroll`](#function-animatescroll).
+Scrolls a container to a target element, using [`animateScroll`](#function-animatescroll). The animation adapts to a moving target; handy when loading affects layout.
 
 | Parameter             | Type                                       | Description                                             |
 | :-------------------- | :----------------------------------------- | :------------------------------------------------------ |

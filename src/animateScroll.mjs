@@ -18,8 +18,8 @@ const position = (start, end, elapsed, duration) =>
     : Math.round(start + (end - start) * easeInOutCubic(elapsed / duration))
 
 /**
- * Smoothly scrolls an element. Scroll interference caused by the user or
- * another script cancels the animation.
+ * Smoothly scrolls an element to a target position within the element. Scroll
+ * interference caused by the user or another script interrupts the animation.
  * @kind function
  * @name animateScroll
  * @param {Object} options Options.
