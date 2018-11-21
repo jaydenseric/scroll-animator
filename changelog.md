@@ -30,6 +30,7 @@
 - Use [`jsdoc-md`](https://npm.im/jsdoc-md) instead of [`jsdoc-to-markdown`](https://npm.im/jsdoc-to-markdown).
 - Use [`eslint-config-env`](https://npm.im/eslint-config-env) instead of [`eslint-config-barebones`](https://npm.im/eslint-config-barebones).
 - Use [Prettier](https://prettier.io); for both linting source and formatting published code.
+- Setup a linting pre-commit hook using [`husky`](https://npm.im/husky) and [`lint-staged`](https://npm.im/lint-staged).
 
 ## 1.1.0
 
