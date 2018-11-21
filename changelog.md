@@ -10,6 +10,7 @@
 ### Patch
 
 - Prevented `package-lock.json` via `.npmrc` and `.gitignore`.
+- Shorthand package `repository` field.
 
 ## 1.1.0
 
