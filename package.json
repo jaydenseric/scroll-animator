@@ -26,13 +26,16 @@
   },
   "browserslist": "> 0.5%, not dead, node 6",
   "scripts": {
-    "prepare": "npm run prepare:clean && npm run prepare:mjs && npm run prepare:js && npm run prepare:jsdoc",
+    "prepare": "npm run prepare:clean && npm run prepare:mjs && npm run prepare:js && npm run prepare:jsdoc && npm run prepare:prettier",
     "prepare:clean": "rm -rf lib",
     "prepare:mjs": "BABEL_ESM=1 babel src -d lib --keep-file-extension",
     "prepare:js": "babel src -d lib",
     "prepare:jsdoc": "jsdoc-md",
-    "lint": "eslint .",
-    "prepublishOnly": "npm run prepare && npm run lint"
+    "prepare:prettier": "prettier 'lib/**/*.{mjs,js}' readme.md --write",
+    "test": "npm run test:eslint && npm run test:prettier",
+    "test:eslint": "eslint . --ext mjs,js",
+    "test:prettier": "prettier '**/*.{json,yml,md}' -l",
+    "prepublishOnly": "npm run prepare && npm test"
   },
   "dependencies": {
     "get-scrollmax-x": "^0.2.0",
@@ -42,11 +45,28 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
-    "eslint": "^3.7.0",
-    "eslint-config-barebones": "^0.1.2",
-    "jsdoc-md": "^1.7.0"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-env": "^2.0.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import-order-alphabetical": "^0.0.1",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "jsdoc-md": "^1.7.0",
+    "prettier": "^1.15.2"
   },
+  "eslintIgnore": [
+    "lib"
+  ],
   "eslintConfig": {
-    "extends": "barebones"
+    "extends": [
+      "env"
+    ]
+  },
+  "prettier": {
+    "proseWrap": "never",
+    "singleQuote": true,
+    "semi": false
   }
 }

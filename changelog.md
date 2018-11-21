@@ -19,6 +19,7 @@
 
 ### Patch
 
+- Updated dev dependencies.
 - Prevented `package-lock.json` via `.npmrc` and `.gitignore`.
 - Shorthand package `repository` field.
 - HTTPS package author URL.
@@ -27,6 +28,8 @@
 - Added a clean build step.
 - Use the Babel CLI instead of Rollup.
 - Use [`jsdoc-md`](https://npm.im/jsdoc-md) instead of [`jsdoc-to-markdown`](https://npm.im/jsdoc-to-markdown).
+- Use [`eslint-config-env`](https://npm.im/eslint-config-env) instead of [`eslint-config-barebones`](https://npm.im/eslint-config-barebones).
+- Use [Prettier](https://prettier.io); for both linting source and formatting published code.
 
 ## 1.1.0
 
