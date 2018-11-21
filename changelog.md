@@ -33,6 +33,7 @@
 - Use [Prettier](https://prettier.io); for both linting source and formatting published code.
 - Setup a linting pre-commit hook using [`husky`](https://npm.im/husky) and [`lint-staged`](https://npm.im/lint-staged).
 - Use [Badgen](https://badgen.net) and reduce the number of readme badges.
+- Configured Travis CI and added a build status readme badge.
 
 ## 1.1.0
 

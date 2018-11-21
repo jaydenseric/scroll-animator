@@ -1,6 +1,6 @@
 # Scroll animator
 
-[![npm version](https://badgen.net/npm/v/scroll-animator)](https://npm.im/scroll-animator)
+[![npm version](https://badgen.net/npm/v/scroll-animator)](https://npm.im/scroll-animator) [![Build status](https://travis-ci.org/jaydenseric/scroll-animator.svg?branch=master)](https://travis-ci.org/jaydenseric/scroll-animator)
 
 A collection of functions for animating browser scroll.
 
