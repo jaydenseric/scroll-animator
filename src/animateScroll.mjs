@@ -31,6 +31,15 @@ const position = (start, end, elapsed, duration) =>
  * @param {number} [options.duration=500] Total scroll animation duration in milliseconds.
  * @param {function} [options.onInterrupt] Callback to run if the scroll animation is interrupted.
  * @param {function} [options.onArrive] Callback to run after scrolling to the target.
+ * @example <caption>Horizontally scroll an element to a certain position.</caption>
+ * ```js
+ * import { animateScroll } from 'scroll-animator'
+ *
+ * animateScroll({
+ *   container: document.getElementById('panner'),
+ *   targetX: 400
+ * })
+ * ```
  */
 export function animateScroll(options = {}) {
   // Establish times first.

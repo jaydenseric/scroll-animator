@@ -15,6 +15,14 @@ import { getTargetScrollPos } from './getTargetScrollPos'
  * @param {number} [options.duration=500] Total scroll animation duration in milliseconds.
  * @param {function} [options.onInterrupt] Callback to run if the scroll animation is interrupted.
  * @param {function} [options.onArrive] Callback to run after scrolling to the target.
+ * @example <caption>Scroll the page to an element.</caption>
+ * ```js
+ * import { scrollToElement } from 'scroll-animator'
+ *
+ * scrollToElement({
+ *   target: document.getElementById('contact-us')
+ * })
+ * ```
  */
 export function scrollToElement(options) {
   const container = options.container || document.scrollingElement

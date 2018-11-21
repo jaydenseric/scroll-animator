@@ -34,7 +34,9 @@ Consider polyfilling:
 ### Table of contents
 
 - [function animateScroll](#function-animatescroll)
+  - [Examples](#examples)
 - [function scrollToElement](#function-scrolltoelement)
+  - [Examples](#examples-1)
 
 ### function animateScroll
 
@@ -52,6 +54,19 @@ Smoothly scrolls an element to a target position within the element. Scroll inte
 | `options.onInterrupt` | [function](https://mdn.io/function)?       | Callback to run if the scroll animation is interrupted.                     |
 | `options.onArrive`    | [function](https://mdn.io/function)?       | Callback to run after scrolling to the target.                              |
 
+#### Examples
+
+_Horizontally scroll an element to a certain position._
+
+> ```js
+> import { animateScroll } from 'scroll-animator'
+>
+> animateScroll({
+>   container: document.getElementById('panner'),
+>   targetX: 400
+> })
+> ```
+
 ### function scrollToElement
 
 Scrolls a container to a target element, using [`animateScroll`](#function-animatescroll). The animation adapts to a moving target; handy when loading affects layout.
@@ -66,3 +81,15 @@ Scrolls a container to a target element, using [`animateScroll`](#function-anima
 | `options.duration`    | [number](https://mdn.io/number)? = `500`   | Total scroll animation duration in milliseconds.        |
 | `options.onInterrupt` | [function](https://mdn.io/function)?       | Callback to run if the scroll animation is interrupted. |
 | `options.onArrive`    | [function](https://mdn.io/function)?       | Callback to run after scrolling to the target.          |
+
+#### Examples
+
+_Scroll the page to an element._
+
+> ```js
+> import { scrollToElement } from 'scroll-animator'
+>
+> scrollToElement({
+>   target: document.getElementById('contact-us')
+> })
+> ```
