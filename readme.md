@@ -1,6 +1,6 @@
 # Scroll animator
 
-![NPM version](https://img.shields.io/npm/v/scroll-animator.svg?style=flat-square) ![Github issues](https://img.shields.io/github/issues/jaydenseric/scroll-animator.svg?style=flat-square) ![Github stars](https://img.shields.io/github/stars/jaydenseric/scroll-animator.svg?style=flat-square)
+[![npm version](https://badgen.net/npm/v/scroll-animator)](https://npm.im/scroll-animator)
 
 A collection of functions for animating browser scroll.
 
