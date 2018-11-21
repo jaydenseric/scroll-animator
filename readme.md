@@ -42,93 +42,92 @@ import { scrollToElement } from 'scroll-animator'
 
 ## API
 
-<a name="module_scrollAnimator.getScrollMax"></a>
+### Table of contents
 
-### scrollAnimator.getScrollMax(container) ⇒ <code>Object</code>
-Gets an element's scroll max positions.
+- [function animateScroll](#function-animatescroll)
+- [function easeInOutCubic](#function-easeinoutcubic)
+  - [See](#see)
+- [function getScrollMax](#function-getscrollmax)
+- [function getTargetScrollPos](#function-gettargetscrollpos)
+- [function position](#function-position)
+- [function scrollToElement](#function-scrolltoelement)
 
-**Kind**: static method of <code>[scrollAnimator](#module_scrollAnimator)</code>  
-**Returns**: <code>Object</code> - X and Y scroll max positions in pixels.  
+### function animateScroll
 
-| Param | Type | Description |
-| --- | --- | --- |
-| container | <code>HTMLElement</code> | Container element with scrolling overflow. |
+Smoothly scrolls an element. Scroll interference caused by the user or
+another script cancels the animation.
 
-<a name="module_scrollAnimator.getTargetScrollPos"></a>
+| Parameter             | Type                                       | Description                                                                 |
+| :-------------------- | :----------------------------------------- | :-------------------------------------------------------------------------- |
+| `options`             | [Object](https://mdn.io/object)            | Options.                                                                    |
+| `options.container`   | HTMLElement? = `document.scrollingElement` | Container element to scroll.                                                |
+| `options.targetX`     | [number](https://mdn.io/number)?           | Target X position within the container, defaulting to the current position. |
+| `options.targetY`     | [number](https://mdn.io/number)?           | Target Y position within the container, defaulting to the current position. |
+| `options.offsetX`     | [number](https://mdn.io/number)? = `0`     | Target X position offset.                                                   |
+| `options.offsetY`     | [number](https://mdn.io/number)? = `0`     | Target Y position offset.                                                   |
+| `options.duration`    | [number](https://mdn.io/number)? = `500`   | Total scroll animation duration in milliseconds.                            |
+| `options.onInterrupt` | [function](https://mdn.io/function)?       | Callback to run if the scroll animation is interrupted.                     |
+| `options.onArrive`    | [function](https://mdn.io/function)?       | Callback to run after scrolling to the target.                              |
 
-### scrollAnimator.getTargetScrollPos(container, target) ⇒ <code>Object</code>
-Gets the scroll offset of an element within a container.
+### function easeInOutCubic
 
-**Kind**: static method of <code>[scrollAnimator](#module_scrollAnimator)</code>  
-**Returns**: <code>Object</code> - The x and y offset in pixels.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| container | <code>HTMLElement</code> | Container element. |
-| target | <code>HTMLElement</code> | Target element. |
-
-<a name="module_scrollAnimator.easeInOutCubic"></a>
-
-### scrollAnimator.easeInOutCubic(t) ⇒ <code>number</code>
 An easeInOutCubic easing function.
 
-**Kind**: static method of <code>[scrollAnimator](#module_scrollAnimator)</code>  
-**Returns**: <code>number</code> - Easing multiplier.  
-**See**: http://blog.greweb.fr/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation  
+| Parameter | Type                            | Description                                                               |
+| :-------- | :------------------------------ | :------------------------------------------------------------------------ |
+| `t`       | [number](https://mdn.io/number) | Decimal representing elapsed time out of the complete animation duration. |
 
-| Param | Type | Description |
-| --- | --- | --- |
-| t | <code>number</code> | Decimal representing elapsed time out of the complete animation duration. |
+**Returns:** [number](https://mdn.io/number) — Easing multiplier.
 
-<a name="module_scrollAnimator.animateScroll"></a>
+#### See
 
-### scrollAnimator.animateScroll(options)
-Smoothly scrolls an element. Scroll interference caused by the user or another script cancels the animation.
+- [“Bezier Curve based easing functions – from concept to implementation”](http://greweb.me/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation)
 
-**Kind**: static method of <code>[scrollAnimator](#module_scrollAnimator)</code>  
+### function getScrollMax
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| options | <code>Object</code> |  | Options. |
-| [options.container] | <code>HTMLElement</code> | <code>document.scrollingElement</code> | Container element to scroll. |
-| [options.targetX] | <code>number</code> |  | Target X position within the container, defaulting to the current position. |
-| [options.targetY] | <code>number</code> |  | Target Y position within the container, defaulting to the current position. |
-| [options.offsetX] | <code>number</code> | <code>0</code> | Target X position offset. |
-| [options.offsetY] | <code>number</code> | <code>0</code> | Target Y position offset. |
-| [options.duration] | <code>number</code> | <code>500</code> | Total scroll animation duration in milliseconds. |
-| [options.onInterrupt] | <code>function</code> |  | Callback to run if the scroll animation is interrupted. |
-| [options.onArrive] | <code>function</code> |  | Callback to run after scrolling to the target. |
+Gets an element's scroll max positions.
 
-<a name="module_scrollAnimator.scrollToElement"></a>
+| Parameter   | Type        | Description                                |
+| :---------- | :---------- | :----------------------------------------- |
+| `container` | HTMLElement | Container element with scrolling overflow. |
 
-### scrollAnimator.scrollToElement(options)
-Scrolls a container to a target element.
+**Returns:** [Object](https://mdn.io/object) — X and Y scroll max positions in pixels.
 
-**Kind**: static method of <code>[scrollAnimator](#module_scrollAnimator)</code>  
+### function getTargetScrollPos
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| options | <code>Object</code> |  | Options. |
-| [options.container] | <code>HTMLElement</code> | <code>document.scrollingElement</code> | Container element to scroll. |
-| options.target | <code>HTMLElement</code> |  | Target element to scroll to. |
-| [options.offsetX] | <code>number</code> | <code>0</code> | Target X position offset. |
-| [options.offsetY] | <code>number</code> | <code>0</code> | Target Y position offset. |
-| [options.duration] | <code>number</code> | <code>500</code> | Total scroll animation duration in milliseconds. |
-| [options.onInterrupt] | <code>function</code> |  | Callback to run if the scroll animation is interrupted. |
-| [options.onArrive] | <code>function</code> |  | Callback to run after scrolling to the target. |
+Gets the scroll offset of an element within a container.
 
-<a name="module_scrollAnimator..position"></a>
+| Parameter   | Type        | Description        |
+| :---------- | :---------- | :----------------- |
+| `container` | HTMLElement | Container element. |
+| `target`    | HTMLElement | Target element.    |
 
-### scrollAnimator~position(start, end, elapsed, duration) ⇒ <code>number</code>
+**Returns:** [Object](https://mdn.io/object) — The x and y offset in pixels.
+
+### function position
+
 Calculates the scroll position at a given scroll animation moment.
 
-**Kind**: inner method of <code>[scrollAnimator](#module_scrollAnimator)</code>  
-**Returns**: <code>number</code> - A scroll position.  
+| Parameter  | Type                            | Description                                                |
+| :--------- | :------------------------------ | :--------------------------------------------------------- |
+| `start`    | [number](https://mdn.io/number) | Start scroll position.                                     |
+| `end`      | [number](https://mdn.io/number) | End scroll position.                                       |
+| `elapsed`  | [number](https://mdn.io/number) | Time since beginning the scroll animation in milliseconds. |
+| `duration` | [number](https://mdn.io/number) | Total scroll animation duration in milliseconds.           |
 
-| Param | Type | Description |
-| --- | --- | --- |
-| start | <code>number</code> | Start scroll position. |
-| end | <code>number</code> | End scroll position. |
-| elapsed | <code>number</code> | Time since beginning the scroll animation in milliseconds. |
-| duration | <code>number</code> | Total scroll animation duration in milliseconds. |
+**Returns:** [number](https://mdn.io/number) — A scroll position.
 
+### function scrollToElement
+
+Scrolls a container to a target element.
+
+| Parameter             | Type                                       | Description                                             |
+| :-------------------- | :----------------------------------------- | :------------------------------------------------------ |
+| `options`             | [Object](https://mdn.io/object)            | Options.                                                |
+| `options.container`   | HTMLElement? = `document.scrollingElement` | Container element to scroll.                            |
+| `options.target`      | HTMLElement                                | Target element to scroll to.                            |
+| `options.offsetX`     | [number](https://mdn.io/number)? = `0`     | Target X position offset.                               |
+| `options.offsetY`     | [number](https://mdn.io/number)? = `0`     | Target Y position offset.                               |
+| `options.duration`    | [number](https://mdn.io/number)? = `500`   | Total scroll animation duration in milliseconds.        |
+| `options.onInterrupt` | [function](https://mdn.io/function)?       | Callback to run if the scroll animation is interrupted. |
+| `options.onArrive`    | [function](https://mdn.io/function)?       | Callback to run after scrolling to the target.          |

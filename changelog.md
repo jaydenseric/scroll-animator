@@ -4,11 +4,16 @@
 
 ### Major
 
+- No longer publish UMD, only CJS (`.js`) and ESM (`.mjs`).
+- No longer publish source maps.
+- Removed the package `module` field. Webpack by default resolves extensionless paths the same way Node.js in `--experimental-modules` mode does; `.mjs` files are preferred.
 - Renamed the published `dist` directory `lib`.
+- Environment support is now tied to the [`> 0.5%, not dead, node 6`](https://browserl.ist/?q=%3E+0.5%25%2C+not+dead%2C+node+6) Browserslist query.
 
 ### Minor
 
 - Added a changelog in `changelog.md`.
+- Publish native ESM (`.mjs`) for Node.js in `--experimental-modules` mode and modern tools such as Webpack to consume.
 - Use package `prepare` script to support installation via Git (e.g. `npm install jaydenseric/scroll-animator`).
 - Declared the package side-effect free for [bundler tree-shaking](https://webpack.js.org/guides/tree-shaking).
 
@@ -20,6 +25,8 @@
 - Use `prepublishOnly` package script instead of `prepublish`.
 - Removed package `watch` script.
 - Added a clean build step.
+- Use the Babel CLI instead of Rollup.
+- Use [`jsdoc-md`](https://npm.im/jsdoc-md) instead of [`jsdoc-to-markdown`](https://npm.im/jsdoc-to-markdown).
 
 ## 1.1.0
 
