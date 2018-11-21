@@ -5,6 +5,7 @@
 ### Minor
 
 - Added a changelog in `changelog.md`.
+- Declared the package side-effect free for [bundler tree-shaking](https://webpack.js.org/guides/tree-shaking).
 
 ### Patch
 

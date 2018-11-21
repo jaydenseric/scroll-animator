@@ -23,6 +23,7 @@
   ],
   "main": "dist/scroll-animator.js",
   "module": "dist/scroll-animator.module.js",
+  "sideEffects": false,
   "scripts": {
     "lint": "eslint .",
     "prebuild": "npm run lint",
