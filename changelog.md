@@ -4,6 +4,7 @@
 
 ### Major
 
+- No longer exporting `easeInOutCubic`, `getScrollMax` and `getTargetScrollPos`.
 - No longer publish UMD, only CJS (`.js`) and ESM (`.mjs`).
 - No longer publish source maps.
 - Removed the package `module` field. Webpack by default resolves extensionless paths the same way Node.js in `--experimental-modules` mode does; `.mjs` files are preferred.

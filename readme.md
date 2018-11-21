@@ -44,10 +44,6 @@ import { scrollToElement } from 'scroll-animator'
 ### Table of contents
 
 - [function animateScroll](#function-animatescroll)
-- [function easeInOutCubic](#function-easeinoutcubic)
-  - [See](#see)
-- [function getScrollMax](#function-getscrollmax)
-- [function getTargetScrollPos](#function-gettargetscrollpos)
 - [function scrollToElement](#function-scrolltoelement)
 
 ### function animateScroll
@@ -66,44 +62,9 @@ Smoothly scrolls an element. Scroll interference caused by the user or another s
 | `options.onInterrupt` | [function](https://mdn.io/function)?       | Callback to run if the scroll animation is interrupted.                     |
 | `options.onArrive`    | [function](https://mdn.io/function)?       | Callback to run after scrolling to the target.                              |
 
-### function easeInOutCubic
-
-An `easeInOutCubic` easing function.
-
-| Parameter | Type                            | Description                                                               |
-| :-------- | :------------------------------ | :------------------------------------------------------------------------ |
-| `t`       | [number](https://mdn.io/number) | Decimal representing elapsed time out of the complete animation duration. |
-
-**Returns:** [number](https://mdn.io/number) — Easing multiplier.
-
-#### See
-
-- [“Bezier Curve based easing functions – from concept to implementation”](http://greweb.me/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation)
-
-### function getScrollMax
-
-Gets an element's scroll max X and Y positions.
-
-| Parameter   | Type        | Description                                |
-| :---------- | :---------- | :----------------------------------------- |
-| `container` | HTMLElement | Container element with scrolling overflow. |
-
-**Returns:** [Object](https://mdn.io/object) — X and Y scroll max positions in pixels.
-
-### function getTargetScrollPos
-
-Gets the scroll offset of an element within a container.
-
-| Parameter   | Type        | Description        |
-| :---------- | :---------- | :----------------- |
-| `container` | HTMLElement | Container element. |
-| `target`    | HTMLElement | Target element.    |
-
-**Returns:** [Object](https://mdn.io/object) — The x and y offset in pixels.
-
 ### function scrollToElement
 
-Scrolls a container to a target element.
+Scrolls a container to a target element, using [`animateScroll`](#function-animatescroll).
 
 | Parameter             | Type                                       | Description                                             |
 | :-------------------- | :----------------------------------------- | :------------------------------------------------------ |
