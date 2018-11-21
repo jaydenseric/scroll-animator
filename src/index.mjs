@@ -2,24 +2,22 @@ import getScrollMaxX from 'get-scrollmax-x'
 import getScrollMaxY from 'get-scrollmax-y'
 
 /**
- * Gets an element's scroll max positions.
+ * Gets an element's scroll max X and Y positions.
  * @kind function
  * @name getScrollMax
  * @param {HTMLElement} container Container element with scrolling overflow.
  * @returns {Object} X and Y scroll max positions in pixels.
  */
-export function getScrollMax(container) {
-  if (container === document.scrollingElement)
-    return {
-      x: getScrollMaxX(),
-      y: getScrollMaxY()
-    }
-  else
-    return {
-      x: container.scrollWidth - container.clientWidth,
-      y: container.scrollHeight - container.clientHeight
-    }
-}
+export const getScrollMax = container =>
+  container === document.scrollingElement
+    ? {
+        x: getScrollMaxX(),
+        y: getScrollMaxY()
+      }
+    : {
+        x: container.scrollWidth - container.clientWidth,
+        y: container.scrollHeight - container.clientHeight
+      }
 
 /**
  * Gets the scroll offset of an element within a container.
@@ -33,11 +31,14 @@ export function getTargetScrollPos(container, target) {
   let targetBounds = target.getBoundingClientRect()
   let scrollPosX = targetBounds.left + container.scrollLeft
   let ScrollPosY = targetBounds.top + container.scrollTop
+
   if (container !== document.scrollingElement) {
     let containerBounds = container.getBoundingClientRect()
+
     scrollPosX -= containerBounds.left
     ScrollPosY -= containerBounds.top
   }
+
   return {
     x: Math.round(scrollPosX),
     y: Math.round(ScrollPosY)
@@ -45,16 +46,15 @@ export function getTargetScrollPos(container, target) {
 }
 
 /**
- * An easeInOutCubic easing function.
+ * An `easeInOutCubic` easing function.
  * @see [“Bezier Curve based easing functions – from concept to implementation”](http://greweb.me/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation)
  * @kind function
  * @name easeInOutCubic
  * @param {number} t Decimal representing elapsed time out of the complete animation duration.
  * @returns {number} Easing multiplier.
  */
-export function easeInOutCubic(t) {
-  return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
-}
+export const easeInOutCubic = t =>
+  t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
 
 /**
  * Calculates the scroll position at a given scroll animation moment.
@@ -65,11 +65,12 @@ export function easeInOutCubic(t) {
  * @param {number} elapsed Time since beginning the scroll animation in milliseconds.
  * @param {number} duration Total scroll animation duration in milliseconds.
  * @returns {number} A scroll position.
+ * @ignore
  */
-function position(start, end, elapsed, duration) {
-  if (elapsed > duration) return end
-  return Math.round(start + (end - start) * easeInOutCubic(elapsed / duration))
-}
+const position = (start, end, elapsed, duration) =>
+  elapsed > duration
+    ? end
+    : Math.round(start + (end - start) * easeInOutCubic(elapsed / duration))
 
 /**
  * Smoothly scrolls an element. Scroll interference caused by the user or
@@ -87,42 +88,45 @@ function position(start, end, elapsed, duration) {
  * @param {function} [options.onArrive] Callback to run after scrolling to the target.
  */
 export function animateScroll(options = {}) {
-  // Establish times first
+  // Establish times first.
   const duration =
     typeof options.duration !== 'undefined' ? options.duration : 500
   const startTime = Date.now()
 
-  // Determine the container
+  // Determine the container.
   const container = options.container || document.scrollingElement
 
-  // Store start scroll positions
+  // Store start scroll positions.
   const startX = container.scrollLeft
   const startY = container.scrollTop
 
-  // Store last scroll position for interference checking
+  // Store last scroll position for interference checking.
   let lastX = startX
   let lastY = startY
 
-  // Determine target scroll positions
+  // Determine target scroll positions.
   let targetX =
     typeof options.targetX !== 'undefined' ? options.targetX : startX
   let targetY =
     typeof options.targetY !== 'undefined' ? options.targetY : startY
 
-  // Account for optional offsets
+  // Account for optional offsets.
   if (options.offsetX) targetX += options.offsetX
   if (options.offsetY) targetY += options.offsetY
 
-  // Ensure scroll target is achievable when near the end
+  // Ensure scroll target is achievable when near the end.
   const scrollMax = getScrollMax(container)
   targetX = Math.min(targetX, scrollMax.x)
   targetY = Math.min(targetY, scrollMax.y)
 
   /**
-   * Steps though the scroll animation with window.requestAnimationFrame.
+   * Steps though the scroll animation with `window.requestAnimationFrame`.
+   * @kind function
+   * @name animateScroll~step
+   * @ignore
    */
   function step() {
-    // Check for scroll interference before continuing animation
+    // Check for scroll interference before continuing animation.
     if (lastX === container.scrollLeft && lastY === container.scrollTop) {
       const elapsed = Date.now() - startTime
       lastX = container.scrollLeft = position(
@@ -137,6 +141,7 @@ export function animateScroll(options = {}) {
       else window.requestAnimationFrame(step)
     } else if (typeof options.onInterrupt === 'function') options.onInterrupt()
   }
+
   step()
 }
 
@@ -166,7 +171,8 @@ export function scrollToElement(options) {
     duration: options.duration,
     onInterrupt: options.onInterrupt,
     onArrive() {
-      // If the container scroll dimensions change, scroll afresh to the shifted target
+      // If the container scroll dimensions change, scroll afresh to the shifted
+      // target.
       if (
         scrollWidth !== config.container.scrollWidth ||
         scrollHeight !== config.container.scrollHeight
@@ -175,5 +181,6 @@ export function scrollToElement(options) {
       if (typeof options.onArrive === 'function') options.onArrive()
     }
   }
+
   animateScroll(config)
 }

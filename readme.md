@@ -47,7 +47,6 @@ import { scrollToElement } from 'scroll-animator'
   - [See](#see)
 - [function getScrollMax](#function-getscrollmax)
 - [function getTargetScrollPos](#function-gettargetscrollpos)
-- [function position](#function-position)
 - [function scrollToElement](#function-scrolltoelement)
 
 ### function animateScroll
@@ -68,7 +67,7 @@ Smoothly scrolls an element. Scroll interference caused by the user or another s
 
 ### function easeInOutCubic
 
-An easeInOutCubic easing function.
+An `easeInOutCubic` easing function.
 
 | Parameter | Type                            | Description                                                               |
 | :-------- | :------------------------------ | :------------------------------------------------------------------------ |
@@ -82,7 +81,7 @@ An easeInOutCubic easing function.
 
 ### function getScrollMax
 
-Gets an element's scroll max positions.
+Gets an element's scroll max X and Y positions.
 
 | Parameter   | Type        | Description                                |
 | :---------- | :---------- | :----------------------------------------- |
@@ -100,19 +99,6 @@ Gets the scroll offset of an element within a container.
 | `target`    | HTMLElement | Target element.    |
 
 **Returns:** [Object](https://mdn.io/object) — The x and y offset in pixels.
-
-### function position
-
-Calculates the scroll position at a given scroll animation moment.
-
-| Parameter  | Type                            | Description                                                |
-| :--------- | :------------------------------ | :--------------------------------------------------------- |
-| `start`    | [number](https://mdn.io/number) | Start scroll position.                                     |
-| `end`      | [number](https://mdn.io/number) | End scroll position.                                       |
-| `elapsed`  | [number](https://mdn.io/number) | Time since beginning the scroll animation in milliseconds. |
-| `duration` | [number](https://mdn.io/number) | Total scroll animation duration in milliseconds.           |
-
-**Returns:** [number](https://mdn.io/number) — A scroll position.
 
 ### function scrollToElement
 
