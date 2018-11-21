@@ -19,6 +19,9 @@
     "esm",
     "mjs"
   ],
+  "files": [
+    "lib"
+  ],
   "main": "lib",
   "sideEffects": false,
   "engines": {
