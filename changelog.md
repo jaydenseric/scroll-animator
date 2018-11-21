@@ -15,6 +15,7 @@
 
 - Added a changelog in `changelog.md`.
 - Publish native ESM (`.mjs`) for Node.js in `--experimental-modules` mode and modern tools such as Webpack to consume.
+- Support server side rendering.
 - Use package `prepare` script to support installation via Git (e.g. `npm install jaydenseric/scroll-animator`).
 - Declared the package side-effect free for [bundler tree-shaking](https://webpack.js.org/guides/tree-shaking).
 

@@ -83,6 +83,7 @@ export function animateScroll(options = {}) {
     // Check for scroll interference before continuing animation.
     if (lastX === container.scrollLeft && lastY === container.scrollTop) {
       const elapsed = Date.now() - startTime
+
       lastX = container.scrollLeft = position(
         startX,
         targetX,
@@ -90,6 +91,7 @@ export function animateScroll(options = {}) {
         duration
       )
       lastY = container.scrollTop = position(startY, targetY, elapsed, duration)
+
       if (elapsed > duration && typeof options.onArrive === 'function')
         options.onArrive()
       else window.requestAnimationFrame(step)

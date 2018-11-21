@@ -28,10 +28,6 @@
     "node": ">=6"
   },
   "browserslist": "> 0.5%, not dead, node 6",
-  "dependencies": {
-    "get-scrollmax-x": "^0.2.0",
-    "get-scrollmax-y": "^1.0.0"
-  },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
