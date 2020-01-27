@@ -24,6 +24,7 @@
 - Use strict mode for scripts.
 - Moved config from `package.json` to separate files, for a leaner install size.
 - Use GitHub Actions instead of Travis for CI.
+- Clarified that Opera Mini isn’t supported in the Browserslist queries and readme “Support” section.
 
 ## 2.0.0
 
