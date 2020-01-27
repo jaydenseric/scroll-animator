@@ -4,7 +4,7 @@
  * @name getTargetScrollPos
  * @param {HTMLElement} container Container element.
  * @param {HTMLElement} target Target element.
- * @returns {Object} The x and y offset in pixels.
+ * @returns {object} The x and y offset in pixels.
  * @ignore
  */
 export function getTargetScrollPos(container, target) {

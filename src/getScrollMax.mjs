@@ -3,7 +3,7 @@
  * @kind function
  * @name getScrollMax
  * @param {HTMLElement} element Element with scrolling overflow.
- * @returns {Object} X and Y scroll max positions in pixels.
+ * @returns {object} X and Y scroll max positions in pixels.
  * @ignore
  */
 export const getScrollMax = element => {

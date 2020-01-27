@@ -22,15 +22,15 @@ const position = (start, end, elapsed, duration) =>
  * interference caused by the user or another script interrupts the animation.
  * @kind function
  * @name animateScroll
- * @param {Object} options Options.
+ * @param {object} options Options.
  * @param {HTMLElement} [options.container=document.scrollingElement] Container element to scroll.
  * @param {number} [options.targetX] Target X position within the container, defaulting to the current position.
  * @param {number} [options.targetY] Target Y position within the container, defaulting to the current position.
  * @param {number} [options.offsetX=0] Target X position offset.
  * @param {number} [options.offsetY=0] Target Y position offset.
  * @param {number} [options.duration=500] Total scroll animation duration in milliseconds.
- * @param {function} [options.onInterrupt] Callback to run if the scroll animation is interrupted.
- * @param {function} [options.onArrive] Callback to run after scrolling to the target.
+ * @param {Function} [options.onInterrupt] Callback to run if the scroll animation is interrupted.
+ * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
  * @example <caption>Horizontally scroll an element to a certain position.</caption>
  * ```js
  * import { animateScroll } from 'scroll-animator'
