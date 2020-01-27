@@ -10,7 +10,7 @@ Smart, lightweight functions to animate browser scroll.
 - Scroll animations can be interrupted by the user or other scripts (no “fighting” animations).
 - Scroll animations adapt to a moving target; handy when loading affects layout.
 - Intuitive [`easeInOutCubic`](https://easings.net/#easeInOutCubic) animation timing; a soft acceleration and deceleration.
-- &lt; 1 KB bundle size, guaranteed by [`size-limit`](https://npm.im/size-limit) tests.
+- < 1 KB bundle size, guaranteed by [Size Limit](https://github.com/ai/size-limit) tests.
 - SSR friendly.
 
 ## Setup
