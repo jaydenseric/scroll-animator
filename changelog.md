@@ -21,6 +21,7 @@
 - Removed `package-lock.json` from `.gitignore` and `.prettierignore` as it’s disabled in `.npmrc` anyway.
 - Use strict mode for scripts.
 - Moved config from `package.json` to separate files, for a leaner install size.
+- Use GitHub Actions instead of Travis for CI.
 
 ## 2.0.0
 
