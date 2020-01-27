@@ -26,9 +26,9 @@
   "main": "lib",
   "sideEffects": false,
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
-  "browserslist": "> 0.5%, not dead, node 6",
+  "browserslist": "> 0.5%, not dead, node 10",
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",

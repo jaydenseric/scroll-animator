@@ -23,7 +23,7 @@ npm install scroll-animator
 
 ## Support
 
-Browserslist query: [`> 0.5%, not dead, node 6`](https://browserl.ist/?q=%3E+0.5%25%2C+not+dead%2C+node+6).
+Browserslist query: [`> 0.5%, not dead, node 10`](https://browserl.ist/?q=%3E+0.5%25%2C+not+dead%2C+node+10).
 
 Consider polyfilling:
 

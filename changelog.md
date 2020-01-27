@@ -2,6 +2,10 @@
 
 ## Next
 
+### Major
+
+- Updated Node.js support from v6+ to v10+.
+
 ### Minor
 
 - Setup [GitHub Sponsors funding](https://github.com/sponsors/jaydenseric):
