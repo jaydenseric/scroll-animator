@@ -21,6 +21,7 @@
 - Added a new [`babel-plugin-transform-require-extensions`](https://npm.im/babel-plugin-transform-require-extensions) dev dependency and ensured ESM import specifiers in both source and published `.mjs` files contain file names with extensions, which [are mandatory in the final Node.js ESM implementation](https://nodejs.org/api/esm.html#esm_mandatory_file_extensions). Published CJS `.js` files now also have file extensions in `require` paths.
 - Added a package `module` field.
 - Removed `package-lock.json` from `.gitignore` and `.prettierignore` as it’s disabled in `.npmrc` anyway.
+- More specifically ignore `/lib` instead of `lib` in `.gitignore` and `.eslintignore`.
 - Use strict mode for scripts.
 - Refactored several arrow functions to regular functions for leaner transpiled code and better stack traces.
 - Moved config from `package.json` to separate files, for a leaner install size.
