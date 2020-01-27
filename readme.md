@@ -35,25 +35,23 @@ Consider polyfilling:
 ### Table of contents
 
 - [function animateScroll](#function-animatescroll)
-  - [Examples](#examples)
 - [function scrollToElement](#function-scrolltoelement)
-  - [Examples](#examples-1)
 
 ### function animateScroll
 
 Smoothly scrolls an element to a target position within the element. Scroll interference caused by the user or another script interrupts the animation.
 
-| Parameter             | Type                                       | Description                                                                 |
-| :-------------------- | :----------------------------------------- | :-------------------------------------------------------------------------- |
-| `options`             | [Object](https://mdn.io/object)            | Options.                                                                    |
-| `options.container`   | HTMLElement? = `document.scrollingElement` | Container element to scroll.                                                |
-| `options.targetX`     | [number](https://mdn.io/number)?           | Target X position within the container, defaulting to the current position. |
-| `options.targetY`     | [number](https://mdn.io/number)?           | Target Y position within the container, defaulting to the current position. |
-| `options.offsetX`     | [number](https://mdn.io/number)? = `0`     | Target X position offset.                                                   |
-| `options.offsetY`     | [number](https://mdn.io/number)? = `0`     | Target Y position offset.                                                   |
-| `options.duration`    | [number](https://mdn.io/number)? = `500`   | Total scroll animation duration in milliseconds.                            |
-| `options.onInterrupt` | [function](https://mdn.io/function)?       | Callback to run if the scroll animation is interrupted.                     |
-| `options.onArrive`    | [function](https://mdn.io/function)?       | Callback to run after scrolling to the target.                              |
+| Parameter | Type | Description |
+| :-- | :-- | :-- |
+| `options` | object | Options. |
+| `options.container` | HTMLElement? = document.scrollingElement | Container element to scroll. |
+| `options.targetX` | number? | Target X position within the container, defaulting to the current position. |
+| `options.targetY` | number? | Target Y position within the container, defaulting to the current position. |
+| `options.offsetX` | number? = `0` | Target X position offset. |
+| `options.offsetY` | number? = `0` | Target Y position offset. |
+| `options.duration` | number? = `500` | Total scroll animation duration in milliseconds. |
+| `options.onInterrupt` | Function? | Callback to run if the scroll animation is interrupted. |
+| `options.onArrive` | Function? | Callback to run after scrolling to the target. |
 
 #### Examples
 
@@ -68,20 +66,22 @@ _Horizontally scroll an element to a certain position._
 > })
 > ```
 
+---
+
 ### function scrollToElement
 
 Scrolls a container to a target element, using [`animateScroll`](#function-animatescroll). The animation adapts to a moving target; handy when loading affects layout.
 
-| Parameter             | Type                                       | Description                                             |
-| :-------------------- | :----------------------------------------- | :------------------------------------------------------ |
-| `options`             | [Object](https://mdn.io/object)            | Options.                                                |
-| `options.container`   | HTMLElement? = `document.scrollingElement` | Container element to scroll.                            |
-| `options.target`      | HTMLElement                                | Target element to scroll to.                            |
-| `options.offsetX`     | [number](https://mdn.io/number)? = `0`     | Target X position offset.                               |
-| `options.offsetY`     | [number](https://mdn.io/number)? = `0`     | Target Y position offset.                               |
-| `options.duration`    | [number](https://mdn.io/number)? = `500`   | Total scroll animation duration in milliseconds.        |
-| `options.onInterrupt` | [function](https://mdn.io/function)?       | Callback to run if the scroll animation is interrupted. |
-| `options.onArrive`    | [function](https://mdn.io/function)?       | Callback to run after scrolling to the target.          |
+| Parameter | Type | Description |
+| :-- | :-- | :-- |
+| `options` | object | Options. |
+| `options.container` | HTMLElement? = document.scrollingElement | Container element to scroll. |
+| `options.target` | HTMLElement | Target element to scroll to. |
+| `options.offsetX` | number? = `0` | Target X position offset. |
+| `options.offsetY` | number? = `0` | Target Y position offset. |
+| `options.duration` | number? = `500` | Total scroll animation duration in milliseconds. |
+| `options.onInterrupt` | Function? | Callback to run if the scroll animation is interrupted. |
+| `options.onArrive` | Function? | Callback to run after scrolling to the target. |
 
 #### Examples
 
