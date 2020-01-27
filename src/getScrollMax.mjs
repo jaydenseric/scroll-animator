@@ -6,7 +6,7 @@
  * @returns {object} X and Y scroll max positions in pixels.
  * @ignore
  */
-export const getScrollMax = element => {
+export function getScrollMax(element) {
   const container =
     element === document.scrollingElement ? document.documentElement : element
 

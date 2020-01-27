@@ -22,6 +22,7 @@
 - Added a package `module` field.
 - Removed `package-lock.json` from `.gitignore` and `.prettierignore` as it’s disabled in `.npmrc` anyway.
 - Use strict mode for scripts.
+- Refactored several arrow functions to regular functions for leaner transpiled code and better stack traces.
 - Moved config from `package.json` to separate files, for a leaner install size.
 - Use GitHub Actions instead of Travis for CI.
 - Clarified that Opera Mini isn’t supported in the Browserslist queries and readme “Support” section.

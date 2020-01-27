@@ -12,10 +12,11 @@ import { getScrollMax } from './getScrollMax.mjs'
  * @returns {number} A scroll position.
  * @ignore
  */
-const position = (start, end, elapsed, duration) =>
-  elapsed > duration
+function position(start, end, elapsed, duration) {
+  return elapsed > duration
     ? end
     : Math.round(start + (end - start) * easeInOutCubic(elapsed / duration))
+}
 
 /**
  * Smoothly scrolls an element to a target position within the element. Scroll
