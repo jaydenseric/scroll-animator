@@ -1,2 +1,2 @@
-export { animateScroll } from './animateScroll'
-export { scrollToElement } from './scrollToElement'
+export { animateScroll } from './animateScroll.mjs'
+export { scrollToElement } from './scrollToElement.mjs'

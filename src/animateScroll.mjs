@@ -1,5 +1,5 @@
-import { easeInOutCubic } from './easeInOutCubic'
-import { getScrollMax } from './getScrollMax'
+import { easeInOutCubic } from './easeInOutCubic.mjs'
+import { getScrollMax } from './getScrollMax.mjs'
 
 /**
  * Calculates the scroll position at a given scroll animation moment.

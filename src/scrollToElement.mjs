@@ -1,5 +1,5 @@
-import { animateScroll } from './animateScroll'
-import { getTargetScrollPos } from './getTargetScrollPos'
+import { animateScroll } from './animateScroll.mjs'
+import { getTargetScrollPos } from './getTargetScrollPos.mjs'
 
 /**
  * Scrolls a container to a target element, using
