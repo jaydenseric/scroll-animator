@@ -1,0 +1,12 @@
+[
+  {
+    "name": "ESM",
+    "path": "lib/index.mjs",
+    "limit": "1 KB"
+  },
+  {
+    "name": "CJS",
+    "path": "lib/index.js",
+    "limit": "1 KB"
+  }
+]
