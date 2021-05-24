@@ -29,6 +29,7 @@
 - Test the bundle size manually using [`esbuild`](https://npm.im/esbuild) and [`gzip-size`](https://npm.im/gzip-size), removing [`size-limit`](https://npm.im/size-limit) related dev dependencies, config, and scripts.
 - Configured Prettier option `semi` to the default, `true`.
 - Removed `npm-debug.log` from the `.gitignore` file as npm [v4.2.0](https://github.com/npm/npm/releases/tag/v4.2.0)+ doesn’t create it in the current working directory.
+- Added `.DS_Store` to the `.gitignore` file.
 
 ## 3.0.0
 
