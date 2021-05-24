@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 module.exports = {
   comments: false,
@@ -13,4 +13,4 @@ module.exports = {
       },
     ],
   ],
-}
+};

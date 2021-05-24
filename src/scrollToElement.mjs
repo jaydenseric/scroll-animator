@@ -1,5 +1,5 @@
-import { animateScroll } from './animateScroll.mjs'
-import { getTargetScrollPos } from './getTargetScrollPos.mjs'
+import { animateScroll } from './animateScroll.mjs';
+import { getTargetScrollPos } from './getTargetScrollPos.mjs';
 
 /**
  * Scrolls a container to a target element, using
@@ -17,17 +17,17 @@ import { getTargetScrollPos } from './getTargetScrollPos.mjs'
  * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
  * @example <caption>Scroll the page to an element.</caption>
  * ```js
- * import { scrollToElement } from 'scroll-animator'
+ * import { scrollToElement } from 'scroll-animator';
  *
  * scrollToElement({
  *   target: document.getElementById('contact-us'),
- * })
+ * });
  * ```
  */
 export function scrollToElement(options) {
-  const container = options.container || document.scrollingElement
-  const { scrollWidth, scrollHeight } = container
-  const targetScrollPos = getTargetScrollPos(container, options.target)
+  const container = options.container || document.scrollingElement;
+  const { scrollWidth, scrollHeight } = container;
+  const targetScrollPos = getTargetScrollPos(container, options.target);
   const config = {
     container,
     targetX: targetScrollPos.x,
@@ -43,10 +43,10 @@ export function scrollToElement(options) {
         scrollWidth !== config.container.scrollWidth ||
         scrollHeight !== config.container.scrollHeight
       )
-        scrollToElement(options)
-      if (typeof options.onArrive === 'function') options.onArrive()
+        scrollToElement(options);
+      if (typeof options.onArrive === 'function') options.onArrive();
     },
-  }
+  };
 
-  animateScroll(config)
+  animateScroll(config);
 }

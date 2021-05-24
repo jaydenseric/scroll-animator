@@ -8,19 +8,19 @@
  * @ignore
  */
 export function getTargetScrollPos(container, target) {
-  let targetBounds = target.getBoundingClientRect()
-  let scrollPosX = targetBounds.left + container.scrollLeft
-  let ScrollPosY = targetBounds.top + container.scrollTop
+  let targetBounds = target.getBoundingClientRect();
+  let scrollPosX = targetBounds.left + container.scrollLeft;
+  let ScrollPosY = targetBounds.top + container.scrollTop;
 
   if (container !== document.scrollingElement) {
-    let containerBounds = container.getBoundingClientRect()
+    let containerBounds = container.getBoundingClientRect();
 
-    scrollPosX -= containerBounds.left
-    ScrollPosY -= containerBounds.top
+    scrollPosX -= containerBounds.left;
+    ScrollPosY -= containerBounds.top;
   }
 
   return {
     x: Math.round(scrollPosX),
     y: Math.round(ScrollPosY),
-  }
+  };
 }

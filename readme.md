@@ -57,12 +57,12 @@ Smoothly scrolls an element to a target position within the element. Scroll inte
 _Horizontally scroll an element to a certain position._
 
 > ```js
-> import { animateScroll } from 'scroll-animator'
+> import { animateScroll } from 'scroll-animator';
 >
 > animateScroll({
 >   container: document.getElementById('panner'),
 >   targetX: 400,
-> })
+> });
 > ```
 
 ---
@@ -87,9 +87,9 @@ Scrolls a container to a target element, using [`animateScroll`](#function-anima
 _Scroll the page to an element._
 
 > ```js
-> import { scrollToElement } from 'scroll-animator'
+> import { scrollToElement } from 'scroll-animator';
 >
 > scrollToElement({
 >   target: document.getElementById('contact-us'),
-> })
+> });
 > ```

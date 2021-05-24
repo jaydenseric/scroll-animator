@@ -1,5 +1,5 @@
-import { easeInOutCubic } from './easeInOutCubic.mjs'
-import { getScrollMax } from './getScrollMax.mjs'
+import { easeInOutCubic } from './easeInOutCubic.mjs';
+import { getScrollMax } from './getScrollMax.mjs';
 
 /**
  * Calculates the scroll position at a given scroll animation moment.
@@ -15,7 +15,7 @@ import { getScrollMax } from './getScrollMax.mjs'
 function position(start, end, elapsed, duration) {
   return elapsed > duration
     ? end
-    : Math.round(start + (end - start) * easeInOutCubic(elapsed / duration))
+    : Math.round(start + (end - start) * easeInOutCubic(elapsed / duration));
 }
 
 /**
@@ -34,45 +34,45 @@ function position(start, end, elapsed, duration) {
  * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
  * @example <caption>Horizontally scroll an element to a certain position.</caption>
  * ```js
- * import { animateScroll } from 'scroll-animator'
+ * import { animateScroll } from 'scroll-animator';
  *
  * animateScroll({
  *   container: document.getElementById('panner'),
  *   targetX: 400,
- * })
+ * });
  * ```
  */
 export function animateScroll(options = {}) {
   // Establish times first.
   const duration =
-    typeof options.duration !== 'undefined' ? options.duration : 500
-  const startTime = Date.now()
+    typeof options.duration !== 'undefined' ? options.duration : 500;
+  const startTime = Date.now();
 
   // Determine the container.
-  const container = options.container || document.scrollingElement
+  const container = options.container || document.scrollingElement;
 
   // Store start scroll positions.
-  const startX = container.scrollLeft
-  const startY = container.scrollTop
+  const startX = container.scrollLeft;
+  const startY = container.scrollTop;
 
   // Store last scroll position for interference checking.
-  let lastX = startX
-  let lastY = startY
+  let lastX = startX;
+  let lastY = startY;
 
   // Determine target scroll positions.
   let targetX =
-    typeof options.targetX !== 'undefined' ? options.targetX : startX
+    typeof options.targetX !== 'undefined' ? options.targetX : startX;
   let targetY =
-    typeof options.targetY !== 'undefined' ? options.targetY : startY
+    typeof options.targetY !== 'undefined' ? options.targetY : startY;
 
   // Account for optional offsets.
-  if (options.offsetX) targetX += options.offsetX
-  if (options.offsetY) targetY += options.offsetY
+  if (options.offsetX) targetX += options.offsetX;
+  if (options.offsetY) targetY += options.offsetY;
 
   // Ensure scroll target is achievable when near the end.
-  const scrollMax = getScrollMax(container)
-  targetX = Math.min(targetX, scrollMax.x)
-  targetY = Math.min(targetY, scrollMax.y)
+  const scrollMax = getScrollMax(container);
+  targetX = Math.min(targetX, scrollMax.x);
+  targetY = Math.min(targetY, scrollMax.y);
 
   /**
    * Steps though the scroll animation with `window.requestAnimationFrame`.
@@ -83,21 +83,26 @@ export function animateScroll(options = {}) {
   function step() {
     // Check for scroll interference before continuing animation.
     if (lastX === container.scrollLeft && lastY === container.scrollTop) {
-      const elapsed = Date.now() - startTime
+      const elapsed = Date.now() - startTime;
 
       lastX = container.scrollLeft = position(
         startX,
         targetX,
         elapsed,
         duration
-      )
-      lastY = container.scrollTop = position(startY, targetY, elapsed, duration)
+      );
+      lastY = container.scrollTop = position(
+        startY,
+        targetY,
+        elapsed,
+        duration
+      );
 
       if (elapsed > duration && typeof options.onArrive === 'function')
-        options.onArrive()
-      else window.requestAnimationFrame(step)
-    } else if (typeof options.onInterrupt === 'function') options.onInterrupt()
+        options.onArrive();
+      else window.requestAnimationFrame(step);
+    } else if (typeof options.onInterrupt === 'function') options.onInterrupt();
   }
 
-  step()
+  step();
 }

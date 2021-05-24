@@ -8,10 +8,10 @@
  */
 export function getScrollMax(element) {
   const container =
-    element === document.scrollingElement ? document.documentElement : element
+    element === document.scrollingElement ? document.documentElement : element;
 
   return {
     x: container.scrollWidth - container.clientWidth,
     y: container.scrollHeight - container.clientHeight,
-  }
+  };
 }

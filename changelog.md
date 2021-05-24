@@ -21,6 +21,7 @@
 - Added a package `test:jsdoc` script that checks the readme API docs are up to date with the source JSDoc.
 - Improved the package `test:prettier` script.
 - Reordered the package `test:eslint` script args.
+- Configured Prettier option `semi` to the default, `true`.
 
 ## 3.0.0
 
