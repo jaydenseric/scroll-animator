@@ -9,8 +9,8 @@ module.exports = {
       {
         modules: process.env.BABEL_ESM ? false : 'commonjs',
         shippedProposals: true,
-        loose: true
-      }
-    ]
-  ]
+        loose: true,
+      },
+    ],
+  ],
 }

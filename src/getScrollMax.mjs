@@ -12,6 +12,6 @@ export function getScrollMax(element) {
 
   return {
     x: container.scrollWidth - container.clientWidth,
-    y: container.scrollHeight - container.clientHeight
+    y: container.scrollHeight - container.clientHeight,
   }
 }

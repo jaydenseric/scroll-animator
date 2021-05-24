@@ -20,7 +20,7 @@ import { getTargetScrollPos } from './getTargetScrollPos.mjs'
  * import { scrollToElement } from 'scroll-animator'
  *
  * scrollToElement({
- *   target: document.getElementById('contact-us')
+ *   target: document.getElementById('contact-us'),
  * })
  * ```
  */
@@ -45,7 +45,7 @@ export function scrollToElement(options) {
       )
         scrollToElement(options)
       if (typeof options.onArrive === 'function') options.onArrive()
-    }
+    },
   }
 
   animateScroll(config)

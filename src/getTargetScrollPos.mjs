@@ -21,6 +21,6 @@ export function getTargetScrollPos(container, target) {
 
   return {
     x: Math.round(scrollPosX),
-    y: Math.round(ScrollPosY)
+    y: Math.round(ScrollPosY),
   }
 }

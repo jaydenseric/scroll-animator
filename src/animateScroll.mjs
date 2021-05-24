@@ -38,7 +38,7 @@ function position(start, end, elapsed, duration) {
  *
  * animateScroll({
  *   container: document.getElementById('panner'),
- *   targetX: 400
+ *   targetX: 400,
  * })
  * ```
  */

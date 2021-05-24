@@ -6,6 +6,7 @@
 
 - Updated Node.js support to `^12.20 || >= 14.13`.
 - Stopped supporting Internet Explorer.
+- Updated dev dependencies, some of which require newer Node.js versions than were previously supported.
 
 ### Patch
 

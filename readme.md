@@ -10,7 +10,7 @@ Smart, lightweight functions to animate browser scroll.
 - Scroll animations can be interrupted by the user or other scripts (no “fighting” animations).
 - Scroll animations adapt to a moving target; handy when loading affects layout.
 - Intuitive [`easeInOutCubic`](https://easings.net/#easeInOutCubic) animation timing; a soft acceleration and deceleration.
-- &lt; 1 KB bundle size, guaranteed by [Size Limit](https://github.com/ai/size-limit) tests.
+- < 1 KB bundle size, guaranteed by [Size Limit](https://github.com/ai/size-limit) tests.
 - SSR friendly.
 
 ## Setup
@@ -32,8 +32,6 @@ Consider polyfilling:
 - [`window.requestAnimationFrame`](https://caniuse.com/#feat=requestanimationframe)
 
 ## API
-
-### Table of contents
 
 - [function animateScroll](#function-animatescroll)
 - [function scrollToElement](#function-scrolltoelement)
@@ -63,7 +61,7 @@ _Horizontally scroll an element to a certain position._
 >
 > animateScroll({
 >   container: document.getElementById('panner'),
->   targetX: 400
+>   targetX: 400,
 > })
 > ```
 
@@ -92,6 +90,6 @@ _Scroll the page to an element._
 > import { scrollToElement } from 'scroll-animator'
 >
 > scrollToElement({
->   target: document.getElementById('contact-us')
+>   target: document.getElementById('contact-us'),
 > })
 > ```
