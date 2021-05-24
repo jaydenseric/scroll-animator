@@ -1,12 +1,12 @@
 [
   {
     "name": "ESM",
-    "path": "lib/index.mjs",
+    "path": "public/index.mjs",
     "limit": "1 KB"
   },
   {
     "name": "CJS",
-    "path": "lib/index.js",
+    "path": "public/index.js",
     "limit": "1 KB"
   }
 ]

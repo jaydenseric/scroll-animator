@@ -1,5 +1,7 @@
-import { easeInOutCubic } from './easeInOutCubic.mjs';
-import { getScrollMax } from './getScrollMax.mjs';
+'use strict';
+
+const easeInOutCubic = require('../private/easeInOutCubic.js');
+const getScrollMax = require('../private/getScrollMax.js');
 
 /**
  * Calculates the scroll position at a given scroll animation moment.
@@ -32,17 +34,31 @@ function position(start, end, elapsed, duration) {
  * @param {number} [options.duration=500] Total scroll animation duration in milliseconds.
  * @param {Function} [options.onInterrupt] Callback to run if the scroll animation is interrupted.
  * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
- * @example <caption>Horizontally scroll an element to a certain position.</caption>
+ * @example <caption>Ways to `import`.</caption>
  * ```js
  * import { animateScroll } from 'scroll-animator';
+ * ```
  *
+ * ```js
+ * import animateScroll from 'scroll-animator/public/animateScroll.js';
+ * ```
+ * @example <caption>Ways to `require`.</caption>
+ * ```js
+ * const { animateScroll } = require('scroll-animator');
+ * ```
+ *
+ * ```js
+ * const animateScroll = require('scroll-animator/public/animateScroll.js');
+ * ```
+ * @example <caption>Horizontally scroll an element to a certain position.</caption>
+ * ```js
  * animateScroll({
  *   container: document.getElementById('panner'),
  *   targetX: 400,
  * });
  * ```
  */
-export function animateScroll(options = {}) {
+module.exports = function animateScroll(options = {}) {
   // Establish times first.
   const duration =
     typeof options.duration !== 'undefined' ? options.duration : 500;
@@ -105,4 +121,4 @@ export function animateScroll(options = {}) {
   }
 
   step();
-}
+};

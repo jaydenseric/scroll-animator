@@ -21,25 +21,30 @@
     "mjs"
   ],
   "files": [
-    "lib"
+    "private",
+    "public"
   ],
-  "main": "lib",
-  "module": "lib/index.mjs",
   "sideEffects": false,
+  "main": "public",
+  "exports": {
+    ".": {
+      "import": "./public/index.mjs",
+      "require": "./public/index.js"
+    },
+    "./public/*": "./public/*",
+    "./package": "./package.json",
+    "./package.json": "./package.json"
+  },
   "engines": {
     "node": "^12.20 || >= 14.13"
   },
   "browserslist": "Node 12.20 - 13 and Node < 13, Node >= 14.13, > 0.5%, not OperaMini all, not IE > 0, not dead",
   "devDependencies": {
-    "@babel/cli": "^7.14.3",
-    "@babel/core": "^7.14.3",
-    "@babel/eslint-parser": "^7.14.3",
-    "@babel/preset-env": "^7.14.2",
     "@size-limit/preset-small-lib": "^4.11.0",
-    "babel-plugin-transform-require-extensions": "^2.0.1",
     "eslint": "^7.27.0",
     "eslint-config-env": "^20.0.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-compat": "^3.9.0",
     "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-jsdoc": "^34.8.2",
     "eslint-plugin-node": "^11.1.0",
@@ -49,17 +54,12 @@
     "size-limit": "^4.11.0"
   },
   "scripts": {
-    "prepare": "npm run prepare:clean && npm run prepare:mjs && npm run prepare:js && npm run prepare:prettier",
-    "prepare:clean": "rm -rf lib",
-    "prepare:mjs": "BABEL_ESM=1 babel src -d lib --keep-file-extension",
-    "prepare:js": "babel src -d lib",
-    "prepare:prettier": "prettier 'lib/**/*.{mjs,js}' --write",
     "jsdoc": "jsdoc-md",
     "test": "npm run test:eslint && npm run test:prettier && npm run test:jsdoc && npm run test:size",
     "test:eslint": "eslint --ext mjs,js .",
     "test:prettier": "prettier -c .",
     "test:jsdoc": "jsdoc-md -c",
     "test:size": "size-limit",
-    "prepublishOnly": "npm run prepare && npm test"
+    "prepublishOnly": "npm test"
   }
 }

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Gets an element's scroll max X and Y positions.
  * @kind function
@@ -6,7 +8,7 @@
  * @returns {object} X and Y scroll max positions in pixels.
  * @ignore
  */
-export function getScrollMax(element) {
+module.exports = function getScrollMax(element) {
   const container =
     element === document.scrollingElement ? document.documentElement : element;
 
@@ -14,4 +16,4 @@ export function getScrollMax(element) {
     x: container.scrollWidth - container.clientWidth,
     y: container.scrollHeight - container.clientHeight,
   };
-}
+};

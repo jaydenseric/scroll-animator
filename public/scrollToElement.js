@@ -1,5 +1,7 @@
-import { animateScroll } from './animateScroll.mjs';
-import { getTargetScrollPos } from './getTargetScrollPos.mjs';
+'use strict';
+
+const getTargetScrollPos = require('../private/getTargetScrollPos.js');
+const animateScroll = require('./animateScroll.js');
 
 /**
  * Scrolls a container to a target element, using
@@ -15,16 +17,30 @@ import { getTargetScrollPos } from './getTargetScrollPos.mjs';
  * @param {number} [options.duration=500] Total scroll animation duration in milliseconds.
  * @param {Function} [options.onInterrupt] Callback to run if the scroll animation is interrupted.
  * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
- * @example <caption>Scroll the page to an element.</caption>
+ * @example <caption>Ways to `import`.</caption>
  * ```js
  * import { scrollToElement } from 'scroll-animator';
+ * ```
  *
+ * ```js
+ * import scrollToElement from 'scroll-animator/public/scrollToElement.js';
+ * ```
+ * @example <caption>Ways to `require`.</caption>
+ * ```js
+ * const { scrollToElement } = require('scroll-animator');
+ * ```
+ *
+ * ```js
+ * const scrollToElement = require('scroll-animator/public/scrollToElement.js');
+ * ```
+ * @example <caption>Scroll the page to an element.</caption>
+ * ```js
  * scrollToElement({
  *   target: document.getElementById('contact-us'),
  * });
  * ```
  */
-export function scrollToElement(options) {
+module.exports = function scrollToElement(options) {
   const container = options.container || document.scrollingElement;
   const { scrollWidth, scrollHeight } = container;
   const targetScrollPos = getTargetScrollPos(container, options.target);
@@ -49,4 +65,4 @@ export function scrollToElement(options) {
   };
 
   animateScroll(config);
-}
+};

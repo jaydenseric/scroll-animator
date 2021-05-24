@@ -7,6 +7,10 @@
 - Updated Node.js support to `^12.20 || >= 14.13`.
 - Stopped supporting Internet Explorer.
 - Updated dev dependencies, some of which require newer Node.js versions than were previously supported.
+- Removed the package `module` field.
+- Added a package [`exports`](https://nodejs.org/api/packages.html#packages_exports) field with [conditional exports](https://nodejs.org/api/packages.html#packages_conditional_exports) to support native ESM in Node.js and keep internal code private, whilst avoiding the [dual package hazard](https://nodejs.org/api/packages.html#packages_dual_package_hazard). Published files have been reorganized, so previously undocumented deep imports will need to be rewritten according to the newly documented paths.
+- Removed Babel related dev dependencies, config, and scripts. Published modules now contain more modern ES syntax.
+- Published modules now contain JSDoc comments, which might affect TypeScript projects.
 
 ### Patch
 

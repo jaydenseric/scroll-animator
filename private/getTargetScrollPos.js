@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Gets the scroll offset of an element within a container.
  * @kind function
@@ -7,7 +9,7 @@
  * @returns {object} The x and y offset in pixels.
  * @ignore
  */
-export function getTargetScrollPos(container, target) {
+module.exports = function getTargetScrollPos(container, target) {
   let targetBounds = target.getBoundingClientRect();
   let scrollPosX = targetBounds.left + container.scrollLeft;
   let ScrollPosY = targetBounds.top + container.scrollTop;
@@ -23,4 +25,4 @@ export function getTargetScrollPos(container, target) {
     x: Math.round(scrollPosX),
     y: Math.round(ScrollPosY),
   };
-}
+};
