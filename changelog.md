@@ -17,6 +17,10 @@
   - Updated `actions/setup-node` to v2.
   - Use the simpler [`npm install-test`](https://docs.npmjs.com/cli/v7/commands/npm-install-test) command.
   - Don’t specify the `CI` environment variable as it’s set by default.
+- Simplified JSDoc related package scripts now that [`jsdoc-md`](https://npm.im/jsdoc-md) v10+ automatically generates a Prettier formatted readme.
+- Added a package `test:jsdoc` script that checks the readme API docs are up to date with the source JSDoc.
+- Improved the package `test:prettier` script.
+- Reordered the package `test:eslint` script args.
 
 ## 3.0.0
 
