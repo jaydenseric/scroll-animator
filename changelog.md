@@ -11,6 +11,7 @@
 - Added a package [`exports`](https://nodejs.org/api/packages.html#packages_exports) field with [conditional exports](https://nodejs.org/api/packages.html#packages_conditional_exports) to support native ESM in Node.js and keep internal code private, whilst avoiding the [dual package hazard](https://nodejs.org/api/packages.html#packages_dual_package_hazard). Published files have been reorganized, so previously undocumented deep imports will need to be rewritten according to the newly documented paths.
 - Removed Babel related dev dependencies, config, and scripts. Published modules now contain more modern ES syntax.
 - Published modules now contain JSDoc comments, which might affect TypeScript projects.
+- Added a package `test:api` script to test the API, using [`test-director`](https://npm.im/test-director) and ESM in `.mjs` files.
 
 ### Patch
 
@@ -25,6 +26,7 @@
 - Added a package `test:jsdoc` script that checks the readme API docs are up to date with the source JSDoc.
 - Improved the package `test:prettier` script.
 - Reordered the package `test:eslint` script args.
+- Test the bundle size manually using [`esbuild`](https://npm.im/esbuild) and [`gzip-size`](https://npm.im/gzip-size), removing [`size-limit`](https://npm.im/size-limit) related dev dependencies, config, and scripts.
 - Configured Prettier option `semi` to the default, `true`.
 - Removed `npm-debug.log` from the `.gitignore` file as npm [v4.2.0](https://github.com/npm/npm/releases/tag/v4.2.0)+ doesn’t create it in the current working directory.
 

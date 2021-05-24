@@ -40,7 +40,7 @@
   },
   "browserslist": "Node 12.20 - 13 and Node < 13, Node >= 14.13, > 0.5%, not OperaMini all, not IE > 0, not dead",
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.11.0",
+    "esbuild": "^0.12.1",
     "eslint": "^7.27.0",
     "eslint-config-env": "^20.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -49,17 +49,18 @@
     "eslint-plugin-jsdoc": "^34.8.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
+    "gzip-size": "^6.0.0",
     "jsdoc-md": "^11.0.0",
     "prettier": "^2.3.0",
-    "size-limit": "^4.11.0"
+    "test-director": "^6.0.0"
   },
   "scripts": {
     "jsdoc": "jsdoc-md",
-    "test": "npm run test:eslint && npm run test:prettier && npm run test:jsdoc && npm run test:size",
+    "test": "npm run test:eslint && npm run test:prettier && npm run test:jsdoc && npm run test:api",
     "test:eslint": "eslint --ext mjs,js .",
     "test:prettier": "prettier -c .",
     "test:jsdoc": "jsdoc-md -c",
-    "test:size": "size-limit",
+    "test:api": "node test/index.mjs",
     "prepublishOnly": "npm test"
   }
 }
