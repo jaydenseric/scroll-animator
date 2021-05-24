@@ -23,8 +23,8 @@ npm install scroll-animator
 
 ## Support
 
-- Node.js v10+
-- Browsers [`> 0.5%, not OperaMini all, not dead`](https://browserl.ist/?q=%3E+0.5%25%2C+not+OperaMini+all%2C+not+dead)
+- [Node.js](https://nodejs.org): `^12.20 || >= 14.13`
+- [Browsers](https://npm.im/browserslist): `> 0.5%, not OperaMini all, not IE > 0, not dead`
 
 Consider polyfilling:
 

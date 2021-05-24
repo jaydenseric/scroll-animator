@@ -27,9 +27,9 @@
   "module": "lib/index.mjs",
   "sideEffects": false,
   "engines": {
-    "node": ">=10"
+    "node": "^12.20 || >= 14.13"
   },
-  "browserslist": "Node >= 10, > 0.5%, not OperaMini all, not dead",
+  "browserslist": "Node 12.20 - 13 and Node < 13, Node >= 14.13, > 0.5%, not OperaMini all, not IE > 0, not dead",
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
