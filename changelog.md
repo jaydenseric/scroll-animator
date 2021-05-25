@@ -11,7 +11,7 @@
 - Added a package [`exports`](https://nodejs.org/api/packages.html#packages_exports) field with [conditional exports](https://nodejs.org/api/packages.html#packages_conditional_exports) to support native ESM in Node.js and keep internal code private, whilst avoiding the [dual package hazard](https://nodejs.org/api/packages.html#packages_dual_package_hazard). Published files have been reorganized, so previously undocumented deep imports will need to be rewritten according to the newly documented paths.
 - Removed Babel related dev dependencies, config, and scripts. Published modules now contain more modern ES syntax.
 - Published modules now contain JSDoc comments, which might affect TypeScript projects.
-- Added a package `test:api` script to test the API, using [`test-director`](https://npm.im/test-director) and ESM in `.mjs` files.
+- Added a package `test:api` script to test the API, using [`coverage-node`](https://npm.im/coverage-node), [`test-director`](https://npm.im/test-director), and ESM in `.mjs` files.
 
 ### Patch
 
