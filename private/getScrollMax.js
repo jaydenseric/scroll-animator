@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Gets an element's scroll max X and Y positions.
+ * Gets an element’s scroll max X and Y positions.
  * @kind function
  * @name getScrollMax
  * @param {HTMLElement} element Element with scrolling overflow.

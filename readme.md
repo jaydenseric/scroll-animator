@@ -15,9 +15,9 @@ Smart, lightweight functions to animate browser scroll.
 
 ## Setup
 
-Install with [npm](https://npmjs.com):
+To install with [npm](https://npmjs.com/get-npm), run:
 
-```shell
+```sh
 npm install scroll-animator
 ```
 
