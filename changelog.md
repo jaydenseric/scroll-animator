@@ -1,5 +1,11 @@
 # scroll-animator changelog
 
+## Next
+
+### Patch
+
+- Amended the changelog entry for v4.0.0.
+
 ## 4.0.0
 
 ### Major
@@ -32,6 +38,7 @@
 - Added `.DS_Store` to the `.gitignore` file.
 - Updated the EditorConfig.
 - Documentation tweaks.
+- The file `changelog.md` is no longer published.
 
 ## 3.0.0
 
