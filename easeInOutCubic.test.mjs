@@ -1,7 +1,13 @@
+// @ts-check
+
 import { strictEqual } from "assert";
 
 import easeInOutCubic from "./easeInOutCubic.mjs";
 
+/**
+ * Adds `easeInOutCubic` tests.
+ * @param {import("test-director").default} tests Test director.
+ */
 export default (tests) => {
   tests.add("`easeInOutCubic` at 0.", () => {
     strictEqual(easeInOutCubic(0), 0);

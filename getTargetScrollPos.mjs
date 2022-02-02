@@ -1,11 +1,10 @@
+// @ts-check
+
 /**
  * Gets the scroll offset of an element within a container.
- * @kind function
- * @name getTargetScrollPos
- * @param {HTMLElement} container Container element.
- * @param {HTMLElement} target Target element.
- * @returns {object} The x and y offset in pixels.
- * @ignore
+ * @param {Element} container Container element.
+ * @param {Element} target Target element.
+ * @returns {{ x: number, y: number }} The x and y offset in pixels.
  */
 export default function getTargetScrollPos(container, target) {
   let targetBounds = target.getBoundingClientRect();

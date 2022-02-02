@@ -31,73 +31,9 @@ Consider polyfilling:
 - [`document.scrollingElement`](https://caniuse.com/#feat=document-scrollingelement)
 - [`window.requestAnimationFrame`](https://caniuse.com/#feat=requestanimationframe)
 
-## API
+## Exports
 
-- [function animateScroll](#function-animatescroll)
-- [function scrollToElement](#function-scrolltoelement)
+These ECMAScript modules are published to [npm](https://npmjs.com) and exported via the [`package.json`](./package.json) `exports` field:
 
-### function animateScroll
-
-Smoothly scrolls an element to a target position within the element. Scroll interference caused by the user or another script interrupts the animation.
-
-| Parameter | Type | Description |
-| :-- | :-- | :-- |
-| `options` | object | Options. |
-| `options.container` | HTMLElement? = document.scrollingElement | Container element to scroll. |
-| `options.targetX` | number? | Target X position within the container, defaulting to the current position. |
-| `options.targetY` | number? | Target Y position within the container, defaulting to the current position. |
-| `options.offsetX` | number? = `0` | Target X position offset. |
-| `options.offsetY` | number? = `0` | Target Y position offset. |
-| `options.duration` | number? = `500` | Total scroll animation duration in milliseconds. |
-| `options.onInterrupt` | Function? | Callback to run if the scroll animation is interrupted. |
-| `options.onArrive` | Function? | Callback to run after scrolling to the target. |
-
-#### Examples
-
-_How to import._
-
-> ```js
-> import animateScroll from "scroll-animator/animateScroll.mjs";
-> ```
-
-_Horizontally scroll an element to a certain position._
-
-> ```js
-> animateScroll({
->   container: document.getElementById("panner"),
->   targetX: 400,
-> });
-> ```
-
----
-
-### function scrollToElement
-
-Scrolls a container to a target element, using [`animateScroll`](#function-animatescroll). The animation adapts to a moving target; handy when loading affects layout.
-
-| Parameter | Type | Description |
-| :-- | :-- | :-- |
-| `options` | object | Options. |
-| `options.container` | HTMLElement? = document.scrollingElement | Container element to scroll. |
-| `options.target` | HTMLElement | Target element to scroll to. |
-| `options.offsetX` | number? = `0` | Target X position offset. |
-| `options.offsetY` | number? = `0` | Target Y position offset. |
-| `options.duration` | number? = `500` | Total scroll animation duration in milliseconds. |
-| `options.onInterrupt` | Function? | Callback to run if the scroll animation is interrupted. |
-| `options.onArrive` | Function? | Callback to run after scrolling to the target. |
-
-#### Examples
-
-_How to import._
-
-> ```js
-> import scrollToElement from "scroll-animator/scrollToElement.mjs";
-> ```
-
-_Scroll the page to an element._
-
-> ```js
-> scrollToElement({
->   target: document.getElementById("contact-us"),
-> });
-> ```
+- [`animateScroll.mjs`](./animateScroll.mjs)
+- [`scrollToElement.mjs`](./scrollToElement.mjs)

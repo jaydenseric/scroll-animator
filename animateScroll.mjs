@@ -1,16 +1,16 @@
+// @ts-check
+
 import easeInOutCubic from "./easeInOutCubic.mjs";
 import getScrollMax from "./getScrollMax.mjs";
 
 /**
  * Calculates the scroll position at a given scroll animation moment.
- * @kind function
- * @name position
  * @param {number} start Start scroll position.
  * @param {number} end End scroll position.
- * @param {number} elapsed Time since beginning the scroll animation in milliseconds.
+ * @param {number} elapsed Time since beginning the scroll animation in
+ *   milliseconds.
  * @param {number} duration Total scroll animation duration in milliseconds.
  * @returns {number} A scroll position.
- * @ignore
  */
 function position(start, end, elapsed, duration) {
   return elapsed > duration
@@ -21,22 +21,24 @@ function position(start, end, elapsed, duration) {
 /**
  * Smoothly scrolls an element to a target position within the element. Scroll
  * interference caused by the user or another script interrupts the animation.
- * @kind function
- * @name animateScroll
  * @param {object} options Options.
- * @param {HTMLElement} [options.container=document.scrollingElement] Container element to scroll.
- * @param {number} [options.targetX] Target X position within the container, defaulting to the current position.
- * @param {number} [options.targetY] Target Y position within the container, defaulting to the current position.
- * @param {number} [options.offsetX=0] Target X position offset.
- * @param {number} [options.offsetY=0] Target Y position offset.
- * @param {number} [options.duration=500] Total scroll animation duration in milliseconds.
- * @param {Function} [options.onInterrupt] Callback to run if the scroll animation is interrupted.
- * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
- * @example <caption>How to import.</caption>
- * ```js
- * import animateScroll from "scroll-animator/animateScroll.mjs";
- * ```
- * @example <caption>Horizontally scroll an element to a certain position.</caption>
+ * @param {Element} [options.container] Container element to scroll.
+ *   Defaults to `document.scrollingElement`.
+ * @param {number} [options.targetX] Target X position within the container.
+ *   Defaults to the current position.
+ * @param {number} [options.targetY] Target Y position within the container.
+ *   Defaults to the current position.
+ * @param {number} [options.offsetX] Target X position offset. Defaults to `0`.
+ * @param {number} [options.offsetY] Target Y position offset. Defaults to `0`.
+ * @param {number} [options.duration] Total scroll animation duration in
+ *   milliseconds. Defaults to `500`.
+ * @param {() => void} [options.onInterrupt] Callback to run if the scroll
+ *   animation is interrupted.
+ * @param {() => void} [options.onArrive] Callback to run after scrolling to the
+ *   target.
+ * @example
+ * Horizontally scroll an element to a certain position:
+ *
  * ```js
  * animateScroll({
  *   container: document.getElementById("panner"),
@@ -44,14 +46,14 @@ function position(start, end, elapsed, duration) {
  * });
  * ```
  */
-export default function animateScroll(options = {}) {
-  // Establish times first.
-  const duration =
-    typeof options.duration !== "undefined" ? options.duration : 500;
-  const startTime = Date.now();
+export default function animateScroll(options) {
+  const { container = document.scrollingElement, duration = 500 } = options;
 
-  // Determine the container.
-  const container = options.container || document.scrollingElement;
+  if (!(container instanceof Element))
+    throw new TypeError("Option `container` must be a `Element` instance.");
+
+  // Establish the start time ASAP.
+  const startTime = Date.now();
 
   // Store start scroll positions.
   const startX = container.scrollLeft;
@@ -62,10 +64,7 @@ export default function animateScroll(options = {}) {
   let lastY = startY;
 
   // Determine target scroll positions.
-  let targetX =
-    typeof options.targetX !== "undefined" ? options.targetX : startX;
-  let targetY =
-    typeof options.targetY !== "undefined" ? options.targetY : startY;
+  let { targetX = startX, targetY = startY } = options;
 
   // Account for optional offsets.
   if (options.offsetX) targetX += options.offsetX;
@@ -76,24 +75,25 @@ export default function animateScroll(options = {}) {
   targetX = Math.min(targetX, scrollMax.x);
   targetY = Math.min(targetY, scrollMax.y);
 
-  /**
-   * Steps though the scroll animation with `window.requestAnimationFrame`.
-   * @kind function
-   * @name animateScroll~step
-   * @ignore
-   */
-  function step() {
-    // Check for scroll interference before continuing animation.
-    if (lastX === container.scrollLeft && lastY === container.scrollTop) {
+  /** Steps though the scroll animation with `window.requestAnimationFrame`. */
+  const step = () => {
+    if (
+      // Scroll position changed, not by this scroll animation.
+      container.scrollLeft !== lastX ||
+      container.scrollTop !== lastY
+    ) {
+      // This scroll animation was interrupted.
+      if (typeof options.onInterrupt === "function") options.onInterrupt();
+    } else {
       const elapsed = Date.now() - startTime;
 
-      lastX = container.scrollLeft = position(
+      container.scrollLeft = lastX = position(
         startX,
         targetX,
         elapsed,
         duration
       );
-      lastY = container.scrollTop = position(
+      container.scrollTop = lastY = position(
         startY,
         targetY,
         elapsed,
@@ -103,8 +103,8 @@ export default function animateScroll(options = {}) {
       if (elapsed > duration && typeof options.onArrive === "function")
         options.onArrive();
       else window.requestAnimationFrame(step);
-    } else if (typeof options.onInterrupt === "function") options.onInterrupt();
-  }
+    }
+  };
 
   step();
 }

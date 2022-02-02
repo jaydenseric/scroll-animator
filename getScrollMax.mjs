@@ -1,10 +1,9 @@
+// @ts-check
+
 /**
  * Gets an element’s scroll max X and Y positions.
- * @kind function
- * @name getScrollMax
- * @param {HTMLElement} element Element with scrolling overflow.
- * @returns {object} X and Y scroll max positions in pixels.
- * @ignore
+ * @param {Element} element Element with scrolling overflow.
+ * @returns {{ x: number, y: number }} X and Y scroll max positions in pixels.
  */
 export default function getScrollMax(element) {
   const container =

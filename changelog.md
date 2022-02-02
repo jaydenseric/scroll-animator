@@ -11,11 +11,18 @@
 - Removed the package main index module; deep imports must be used.
 - Shortened public module deep import paths, removing the `/public/`.
 - The API is now ESM in `.mjs` files instead of CJS in `.js` files, [accessible via `import` but not `require`](https://nodejs.org/dist/latest/docs/api/esm.html#require).
+- Implemented TypeScript types via JSDoc comments.
+
+### Minor
+
+- Added some runtime argument type checks.
 
 ### Patch
 
 - Also run GitHub Actions CI with Node.js v17.
 - Simplified package scripts.
+- Check TypeScript types via a new package `types` script.
+- Removed the [`jsdoc-md`](https://npm.im/jsdoc-md) dev dependency and the related package scripts, replacing the readme “API” section with a manually written “Exports” section.
 - Simplified dev dependencies and config for ESLint.
 - Reorganized the test file structure.
 - Renamed imports in the test index module.

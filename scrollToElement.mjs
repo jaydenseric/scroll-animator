@@ -1,25 +1,26 @@
+// @ts-check
+
 import animateScroll from "./animateScroll.mjs";
 import getTargetScrollPos from "./getTargetScrollPos.mjs";
 
 /**
- * Scrolls a container to a target element, using
- * [`animateScroll`]{@link animateScroll}. The animation adapts to a moving
- * target; handy when loading affects layout.
- * @kind function
- * @name scrollToElement
+ * Scrolls a container to a target element, using {@linkcode animateScroll}. The
+ * animation adapts to a moving target; handy when loading affects layout.
  * @param {object} options Options.
- * @param {HTMLElement} [options.container=document.scrollingElement] Container element to scroll.
- * @param {HTMLElement} options.target Target element to scroll to.
- * @param {number} [options.offsetX=0] Target X position offset.
- * @param {number} [options.offsetY=0] Target Y position offset.
- * @param {number} [options.duration=500] Total scroll animation duration in milliseconds.
- * @param {Function} [options.onInterrupt] Callback to run if the scroll animation is interrupted.
- * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
- * @example <caption>How to import.</caption>
- * ```js
- * import scrollToElement from "scroll-animator/scrollToElement.mjs";
- * ```
- * @example <caption>Scroll the page to an element.</caption>
+ * @param {Element} [options.container] Container element to scroll. Defaults to
+ *   `document.scrollingElement`.
+ * @param {Element} options.target Target element to scroll to.
+ * @param {number} [options.offsetX] Target X position offset. Defaults to `0`.
+ * @param {number} [options.offsetY] Target Y position offset. Defaults to `0`.
+ * @param {number} [options.duration] Total scroll animation duration in
+ *   milliseconds. Defaults to `500`.
+ * @param {() => void} [options.onInterrupt] Callback to run if the scroll
+ *   animation is interrupted.
+ * @param {() => void} [options.onArrive] Callback to run after scrolling to the
+ *   target.
+ * @example
+ * Scroll the page to an element:
+ *
  * ```js
  * scrollToElement({
  *   target: document.getElementById("contact-us"),
@@ -27,28 +28,43 @@ import getTargetScrollPos from "./getTargetScrollPos.mjs";
  * ```
  */
 export default function scrollToElement(options) {
-  const container = options.container || document.scrollingElement;
+  const {
+    container = document.scrollingElement,
+    target,
+    offsetX,
+    offsetY,
+    duration,
+    onInterrupt,
+    onArrive,
+  } = options;
+
+  if (!(container instanceof Element))
+    throw new TypeError("Option `container` must be a `Element` instance.");
+
+  if (!(target instanceof Element))
+    throw new TypeError("Option `target` must be a `Element` instance.");
+
   const { scrollWidth, scrollHeight } = container;
-  const targetScrollPos = getTargetScrollPos(container, options.target);
-  const config = {
+  const { x: targetX, y: targetY } = getTargetScrollPos(container, target);
+  const animateScrollOptions = {
     container,
-    targetX: targetScrollPos.x,
-    targetY: targetScrollPos.y,
-    offsetX: options.offsetX,
-    offsetY: options.offsetY,
-    duration: options.duration,
-    onInterrupt: options.onInterrupt,
+    targetX,
+    targetY,
+    offsetX,
+    offsetY,
+    duration,
+    onInterrupt,
     onArrive() {
-      // If the container scroll dimensions change, scroll afresh to the shifted
-      // target.
       if (
-        scrollWidth !== config.container.scrollWidth ||
-        scrollHeight !== config.container.scrollHeight
+        // Container scroll dimensions changed.
+        container.scrollWidth !== scrollWidth ||
+        container.scrollHeight !== scrollHeight
       )
+        // Scroll afresh to the shifted target.
         scrollToElement(options);
-      if (typeof options.onArrive === "function") options.onArrive();
+      if (typeof onArrive === "function") onArrive();
     },
   };
 
-  animateScroll(config);
+  animateScroll(animateScrollOptions);
 }
