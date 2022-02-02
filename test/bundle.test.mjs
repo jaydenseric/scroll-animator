@@ -9,12 +9,13 @@ export default (tests) => {
       outputFiles: [bundle],
     } = await esbuild.build({
       entryPoints: [
-        fileURLToPath(new URL("../public/index.js", import.meta.url)),
+        fileURLToPath(new URL("../public/index.mjs", import.meta.url)),
       ],
       write: false,
       bundle: true,
       minify: true,
       legalComments: "none",
+      format: "esm",
     });
 
     const kB = (await gzipSize(bundle.contents)) / 1000;

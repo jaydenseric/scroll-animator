@@ -1,7 +1,5 @@
-"use strict";
-
-const easeInOutCubic = require("../private/easeInOutCubic.js");
-const getScrollMax = require("../private/getScrollMax.js");
+import easeInOutCubic from "../private/easeInOutCubic.mjs";
+import getScrollMax from "../private/getScrollMax.mjs";
 
 /**
  * Calculates the scroll position at a given scroll animation moment.
@@ -40,15 +38,7 @@ function position(start, end, elapsed, duration) {
  * ```
  *
  * ```js
- * import animateScroll from "scroll-animator/public/animateScroll.js";
- * ```
- * @example <caption>Ways to `require`.</caption>
- * ```js
- * const { animateScroll } = require("scroll-animator");
- * ```
- *
- * ```js
- * const animateScroll = require("scroll-animator/public/animateScroll.js");
+ * import animateScroll from "scroll-animator/public/animateScroll.mjs";
  * ```
  * @example <caption>Horizontally scroll an element to a certain position.</caption>
  * ```js
@@ -58,7 +48,7 @@ function position(start, end, elapsed, duration) {
  * });
  * ```
  */
-module.exports = function animateScroll(options = {}) {
+export default function animateScroll(options = {}) {
   // Establish times first.
   const duration =
     typeof options.duration !== "undefined" ? options.duration : 500;
@@ -121,4 +111,4 @@ module.exports = function animateScroll(options = {}) {
   }
 
   step();
-};
+}

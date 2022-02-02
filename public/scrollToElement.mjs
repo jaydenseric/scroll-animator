@@ -1,7 +1,5 @@
-"use strict";
-
-const getTargetScrollPos = require("../private/getTargetScrollPos.js");
-const animateScroll = require("./animateScroll.js");
+import getTargetScrollPos from "../private/getTargetScrollPos.mjs";
+import animateScroll from "./animateScroll.mjs";
 
 /**
  * Scrolls a container to a target element, using
@@ -23,15 +21,7 @@ const animateScroll = require("./animateScroll.js");
  * ```
  *
  * ```js
- * import scrollToElement from "scroll-animator/public/scrollToElement.js";
- * ```
- * @example <caption>Ways to `require`.</caption>
- * ```js
- * const { scrollToElement } = require("scroll-animator");
- * ```
- *
- * ```js
- * const scrollToElement = require("scroll-animator/public/scrollToElement.js");
+ * import scrollToElement from "scroll-animator/public/scrollToElement.mjs";
  * ```
  * @example <caption>Scroll the page to an element.</caption>
  * ```js
@@ -40,7 +30,7 @@ const animateScroll = require("./animateScroll.js");
  * });
  * ```
  */
-module.exports = function scrollToElement(options) {
+export default function scrollToElement(options) {
   const container = options.container || document.scrollingElement;
   const { scrollWidth, scrollHeight } = container;
   const targetScrollPos = getTargetScrollPos(container, options.target);
@@ -65,4 +55,4 @@ module.exports = function scrollToElement(options) {
   };
 
   animateScroll(config);
-};
+}

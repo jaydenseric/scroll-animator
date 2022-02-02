@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * An `easeInOutCubic` easing function.
  * @see [`easeInOutCubic`](https://easings.net/#easeInOutCubic).
@@ -10,6 +8,6 @@
  * @returns {number} Easing multiplier.
  * @ignore
  */
-module.exports = function easeInOutCubic(t) {
+export default function easeInOutCubic(t) {
   return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-};
+}

@@ -61,17 +61,7 @@ _Ways to `import`._
 > ```
 >
 > ```js
-> import animateScroll from "scroll-animator/public/animateScroll.js";
-> ```
-
-_Ways to `require`._
-
-> ```js
-> const { animateScroll } = require("scroll-animator");
-> ```
->
-> ```js
-> const animateScroll = require("scroll-animator/public/animateScroll.js");
+> import animateScroll from "scroll-animator/public/animateScroll.mjs";
 > ```
 
 _Horizontally scroll an element to a certain position._
@@ -109,17 +99,7 @@ _Ways to `import`._
 > ```
 >
 > ```js
-> import scrollToElement from "scroll-animator/public/scrollToElement.js";
-> ```
-
-_Ways to `require`._
-
-> ```js
-> const { scrollToElement } = require("scroll-animator");
-> ```
->
-> ```js
-> const scrollToElement = require("scroll-animator/public/scrollToElement.js");
+> import scrollToElement from "scroll-animator/public/scrollToElement.mjs";
 > ```
 
 _Scroll the page to an element._
