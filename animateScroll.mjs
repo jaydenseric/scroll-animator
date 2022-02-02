@@ -1,5 +1,5 @@
-import easeInOutCubic from "../private/easeInOutCubic.mjs";
-import getScrollMax from "../private/getScrollMax.mjs";
+import easeInOutCubic from "./easeInOutCubic.mjs";
+import getScrollMax from "./getScrollMax.mjs";
 
 /**
  * Calculates the scroll position at a given scroll animation moment.
@@ -34,7 +34,7 @@ function position(start, end, elapsed, duration) {
  * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
  * @example <caption>How to import.</caption>
  * ```js
- * import animateScroll from "scroll-animator/public/animateScroll.mjs";
+ * import animateScroll from "scroll-animator/animateScroll.mjs";
  * ```
  * @example <caption>Horizontally scroll an element to a certain position.</caption>
  * ```js

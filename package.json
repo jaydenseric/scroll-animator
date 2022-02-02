@@ -21,12 +21,16 @@
     "mjs"
   ],
   "files": [
-    "private",
-    "public"
+    "animateScroll.mjs",
+    "easeInOutCubic.mjs",
+    "getScrollMax.mjs",
+    "getTargetScrollPos.mjs",
+    "scrollToElement.mjs"
   ],
   "sideEffects": false,
   "exports": {
-    "./public/*": "./public/*",
+    "./animateScroll.mjs": "./animateScroll.mjs",
+    "./scrollToElement.mjs": "./scrollToElement.mjs",
     "./package.json": "./package.json"
   },
   "engines": {
@@ -48,7 +52,7 @@
     "docs-check": "jsdoc-md -c",
     "eslint": "eslint .",
     "prettier": "prettier -c .",
-    "tests": "coverage-node test/index.mjs",
+    "tests": "coverage-node test.mjs",
     "test": "npm run eslint && npm run prettier && npm run docs-check && npm run tests",
     "prepublishOnly": "npm test"
   }

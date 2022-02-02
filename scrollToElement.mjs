@@ -1,5 +1,5 @@
-import getTargetScrollPos from "../private/getTargetScrollPos.mjs";
 import animateScroll from "./animateScroll.mjs";
+import getTargetScrollPos from "./getTargetScrollPos.mjs";
 
 /**
  * Scrolls a container to a target element, using
@@ -17,7 +17,7 @@ import animateScroll from "./animateScroll.mjs";
  * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
  * @example <caption>How to import.</caption>
  * ```js
- * import scrollToElement from "scroll-animator/public/scrollToElement.mjs";
+ * import scrollToElement from "scroll-animator/scrollToElement.mjs";
  * ```
  * @example <caption>Scroll the page to an element.</caption>
  * ```js

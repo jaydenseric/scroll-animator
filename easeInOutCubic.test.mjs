@@ -1,6 +1,6 @@
 import { strictEqual } from "assert";
 
-import easeInOutCubic from "../../private/easeInOutCubic.mjs";
+import easeInOutCubic from "./easeInOutCubic.mjs";
 
 export default (tests) => {
   tests.add("`easeInOutCubic` at 0.", () => {

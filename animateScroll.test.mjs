@@ -1,9 +1,9 @@
-import assertBundleSize from "../assertBundleSize.mjs";
+import assertBundleSize from "./test/assertBundleSize.mjs";
 
 export default (tests) => {
   tests.add("`animateScroll` bundle size.", async () => {
     await assertBundleSize(
-      new URL("../../public/animateScroll.mjs", import.meta.url),
+      new URL("./animateScroll.mjs", import.meta.url),
       500
     );
   });
