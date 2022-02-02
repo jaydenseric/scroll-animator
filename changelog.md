@@ -9,6 +9,7 @@
 
 ### Patch
 
+- Also run GitHub Actions CI with Node.js v17.
 - Renamed imports in the test index module.
 - Amended the changelog entry for v4.0.0.
 
