@@ -1,4 +1,5 @@
 import { strictEqual } from "assert";
+
 import easeInOutCubic from "../../private/easeInOutCubic.mjs";
 
 export default (tests) => {

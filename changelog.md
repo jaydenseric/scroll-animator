@@ -13,6 +13,7 @@
 
 - Also run GitHub Actions CI with Node.js v17.
 - Simplified package scripts.
+- Simplified dev dependencies and config for ESLint.
 - Renamed imports in the test index module.
 - Configured Prettier option `singleQuote` to the default, `false`.
 - Amended the changelog entry for v4.0.0.
