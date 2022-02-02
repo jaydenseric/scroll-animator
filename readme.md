@@ -54,12 +54,8 @@ Smoothly scrolls an element to a target position within the element. Scroll inte
 
 #### Examples
 
-_Ways to `import`._
+_How to import._
 
-> ```js
-> import { animateScroll } from "scroll-animator";
-> ```
->
 > ```js
 > import animateScroll from "scroll-animator/public/animateScroll.mjs";
 > ```
@@ -92,12 +88,8 @@ Scrolls a container to a target element, using [`animateScroll`](#function-anima
 
 #### Examples
 
-_Ways to `import`._
+_How to import._
 
-> ```js
-> import { scrollToElement } from "scroll-animator";
-> ```
->
 > ```js
 > import scrollToElement from "scroll-animator/public/scrollToElement.mjs";
 > ```

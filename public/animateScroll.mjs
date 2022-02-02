@@ -32,11 +32,7 @@ function position(start, end, elapsed, duration) {
  * @param {number} [options.duration=500] Total scroll animation duration in milliseconds.
  * @param {Function} [options.onInterrupt] Callback to run if the scroll animation is interrupted.
  * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
- * @example <caption>Ways to `import`.</caption>
- * ```js
- * import { animateScroll } from "scroll-animator";
- * ```
- *
+ * @example <caption>How to import.</caption>
  * ```js
  * import animateScroll from "scroll-animator/public/animateScroll.mjs";
  * ```

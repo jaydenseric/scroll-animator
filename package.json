@@ -25,9 +25,7 @@
     "public"
   ],
   "sideEffects": false,
-  "main": "./public/index.mjs",
   "exports": {
-    ".": "./public/index.mjs",
     "./public/*": "./public/*",
     "./package.json": "./package.json"
   },
