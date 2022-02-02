@@ -57,28 +57,28 @@ Smoothly scrolls an element to a target position within the element. Scroll inte
 _Ways to `import`._
 
 > ```js
-> import { animateScroll } from 'scroll-animator';
+> import { animateScroll } from "scroll-animator";
 > ```
 >
 > ```js
-> import animateScroll from 'scroll-animator/public/animateScroll.js';
+> import animateScroll from "scroll-animator/public/animateScroll.js";
 > ```
 
 _Ways to `require`._
 
 > ```js
-> const { animateScroll } = require('scroll-animator');
+> const { animateScroll } = require("scroll-animator");
 > ```
 >
 > ```js
-> const animateScroll = require('scroll-animator/public/animateScroll.js');
+> const animateScroll = require("scroll-animator/public/animateScroll.js");
 > ```
 
 _Horizontally scroll an element to a certain position._
 
 > ```js
 > animateScroll({
->   container: document.getElementById('panner'),
+>   container: document.getElementById("panner"),
 >   targetX: 400,
 > });
 > ```
@@ -105,27 +105,27 @@ Scrolls a container to a target element, using [`animateScroll`](#function-anima
 _Ways to `import`._
 
 > ```js
-> import { scrollToElement } from 'scroll-animator';
+> import { scrollToElement } from "scroll-animator";
 > ```
 >
 > ```js
-> import scrollToElement from 'scroll-animator/public/scrollToElement.js';
+> import scrollToElement from "scroll-animator/public/scrollToElement.js";
 > ```
 
 _Ways to `require`._
 
 > ```js
-> const { scrollToElement } = require('scroll-animator');
+> const { scrollToElement } = require("scroll-animator");
 > ```
 >
 > ```js
-> const scrollToElement = require('scroll-animator/public/scrollToElement.js');
+> const scrollToElement = require("scroll-animator/public/scrollToElement.js");
 > ```
 
 _Scroll the page to an element._
 
 > ```js
 > scrollToElement({
->   target: document.getElementById('contact-us'),
+>   target: document.getElementById("contact-us"),
 > });
 > ```

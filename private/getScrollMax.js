@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Gets an element’s scroll max X and Y positions.

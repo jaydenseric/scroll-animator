@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Gets the scroll offset of an element within a container.

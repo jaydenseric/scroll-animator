@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const getTargetScrollPos = require('../private/getTargetScrollPos.js');
-const animateScroll = require('./animateScroll.js');
+const getTargetScrollPos = require("../private/getTargetScrollPos.js");
+const animateScroll = require("./animateScroll.js");
 
 /**
  * Scrolls a container to a target element, using
@@ -19,24 +19,24 @@ const animateScroll = require('./animateScroll.js');
  * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
  * @example <caption>Ways to `import`.</caption>
  * ```js
- * import { scrollToElement } from 'scroll-animator';
+ * import { scrollToElement } from "scroll-animator";
  * ```
  *
  * ```js
- * import scrollToElement from 'scroll-animator/public/scrollToElement.js';
+ * import scrollToElement from "scroll-animator/public/scrollToElement.js";
  * ```
  * @example <caption>Ways to `require`.</caption>
  * ```js
- * const { scrollToElement } = require('scroll-animator');
+ * const { scrollToElement } = require("scroll-animator");
  * ```
  *
  * ```js
- * const scrollToElement = require('scroll-animator/public/scrollToElement.js');
+ * const scrollToElement = require("scroll-animator/public/scrollToElement.js");
  * ```
  * @example <caption>Scroll the page to an element.</caption>
  * ```js
  * scrollToElement({
- *   target: document.getElementById('contact-us'),
+ *   target: document.getElementById("contact-us"),
  * });
  * ```
  */
@@ -60,7 +60,7 @@ module.exports = function scrollToElement(options) {
         scrollHeight !== config.container.scrollHeight
       )
         scrollToElement(options);
-      if (typeof options.onArrive === 'function') options.onArrive();
+      if (typeof options.onArrive === "function") options.onArrive();
     },
   };
 

@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const easeInOutCubic = require('../private/easeInOutCubic.js');
-const getScrollMax = require('../private/getScrollMax.js');
+const easeInOutCubic = require("../private/easeInOutCubic.js");
+const getScrollMax = require("../private/getScrollMax.js");
 
 /**
  * Calculates the scroll position at a given scroll animation moment.
@@ -36,24 +36,24 @@ function position(start, end, elapsed, duration) {
  * @param {Function} [options.onArrive] Callback to run after scrolling to the target.
  * @example <caption>Ways to `import`.</caption>
  * ```js
- * import { animateScroll } from 'scroll-animator';
+ * import { animateScroll } from "scroll-animator";
  * ```
  *
  * ```js
- * import animateScroll from 'scroll-animator/public/animateScroll.js';
+ * import animateScroll from "scroll-animator/public/animateScroll.js";
  * ```
  * @example <caption>Ways to `require`.</caption>
  * ```js
- * const { animateScroll } = require('scroll-animator');
+ * const { animateScroll } = require("scroll-animator");
  * ```
  *
  * ```js
- * const animateScroll = require('scroll-animator/public/animateScroll.js');
+ * const animateScroll = require("scroll-animator/public/animateScroll.js");
  * ```
  * @example <caption>Horizontally scroll an element to a certain position.</caption>
  * ```js
  * animateScroll({
- *   container: document.getElementById('panner'),
+ *   container: document.getElementById("panner"),
  *   targetX: 400,
  * });
  * ```
@@ -61,7 +61,7 @@ function position(start, end, elapsed, duration) {
 module.exports = function animateScroll(options = {}) {
   // Establish times first.
   const duration =
-    typeof options.duration !== 'undefined' ? options.duration : 500;
+    typeof options.duration !== "undefined" ? options.duration : 500;
   const startTime = Date.now();
 
   // Determine the container.
@@ -77,9 +77,9 @@ module.exports = function animateScroll(options = {}) {
 
   // Determine target scroll positions.
   let targetX =
-    typeof options.targetX !== 'undefined' ? options.targetX : startX;
+    typeof options.targetX !== "undefined" ? options.targetX : startX;
   let targetY =
-    typeof options.targetY !== 'undefined' ? options.targetY : startY;
+    typeof options.targetY !== "undefined" ? options.targetY : startY;
 
   // Account for optional offsets.
   if (options.offsetX) targetX += options.offsetX;
@@ -114,10 +114,10 @@ module.exports = function animateScroll(options = {}) {
         duration
       );
 
-      if (elapsed > duration && typeof options.onArrive === 'function')
+      if (elapsed > duration && typeof options.onArrive === "function")
         options.onArrive();
       else window.requestAnimationFrame(step);
-    } else if (typeof options.onInterrupt === 'function') options.onInterrupt();
+    } else if (typeof options.onInterrupt === "function") options.onInterrupt();
   }
 
   step();

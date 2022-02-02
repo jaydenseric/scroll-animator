@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
-exports.animateScroll = require('./animateScroll.js');
-exports.scrollToElement = require('./scrollToElement.js');
+exports.animateScroll = require("./animateScroll.js");
+exports.scrollToElement = require("./scrollToElement.js");
