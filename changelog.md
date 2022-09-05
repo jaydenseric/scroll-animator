@@ -12,6 +12,7 @@
 - Shortened public module deep import paths, removing the `/public/`.
 - The API is now ESM in `.mjs` files instead of CJS in `.js` files, [accessible via `import` but not `require`](https://nodejs.org/dist/latest/docs/api/esm.html#require).
 - Implemented TypeScript types via JSDoc comments.
+- Use the `node:` URL scheme for Node.js builtin module imports in tests.
 
 ### Minor
 
