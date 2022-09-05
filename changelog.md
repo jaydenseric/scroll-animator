@@ -19,6 +19,7 @@
 
 ### Patch
 
+- Removed the now redundant `not IE > 0` from the Browserslist query.
 - Updated GitHub Actions CI config:
   - Run tests with Node.js v14, v16, v18.
   - Updated `actions/checkout` to v3.
