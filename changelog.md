@@ -21,6 +21,8 @@
 
 - Updated GitHub Actions CI config:
   - Run tests with Node.js v14, v16, v18.
+  - Updated `actions/checkout` to v3.
+  - Updated `actions/setup-node` to v3.
 - Simplified package scripts.
 - Check TypeScript types via a new package `types` script.
 - Removed the [`jsdoc-md`](https://npm.im/jsdoc-md) dev dependency and the related package scripts, replacing the readme “API” section with a manually written “Exports” section.
