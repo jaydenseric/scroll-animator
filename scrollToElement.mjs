@@ -62,7 +62,7 @@ export default function scrollToElement(options) {
       )
         // Scroll afresh to the shifted target.
         scrollToElement(options);
-      if (typeof onArrive === "function") onArrive();
+      else if (typeof onArrive === "function") onArrive();
     },
   };
 

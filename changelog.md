@@ -13,6 +13,7 @@
 - The API is now ESM in `.mjs` files instead of CJS in `.js` files, [accessible via `import` but not `require`](https://nodejs.org/dist/latest/docs/api/esm.html#require).
 - Implemented TypeScript types via JSDoc comments.
 - Use the `node:` URL scheme for Node.js builtin module imports in tests.
+- The function `scrollToElement` now only calls the `onArrive` callback once when the scroll arrives at the target element, even if the target moves within the scroll container during scroll animations multiple times.
 
 ### Minor
 
@@ -36,6 +37,7 @@
   - Failure message contains details about the bundle size and how much the limit was exceeded.
   - Errors when the surplus is greater than 25% of the limit, suggesting the limit should be reduced.
   - Resolves the minified bundle and its gzipped size for debugging in tests.
+- Added headless browser tests.
 - Configured Prettier option `singleQuote` to the default, `false`.
 - Amended the changelog entry for v4.0.0.
 
