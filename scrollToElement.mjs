@@ -1,7 +1,12 @@
 // @ts-check
 
-import animateScroll from "./animateScroll.mjs";
+import animateScroll, { durationDefault } from "./animateScroll.mjs";
 import getTargetScrollPos from "./getTargetScrollPos.mjs";
+
+export {
+  /** The {@linkcode scrollToElement} option `duration` default value. */
+  durationDefault,
+};
 
 /**
  * Scrolls a container to a target element, using {@linkcode animateScroll}. The
@@ -13,7 +18,7 @@ import getTargetScrollPos from "./getTargetScrollPos.mjs";
  * @param {number} [options.offsetX] Target X position offset. Defaults to `0`.
  * @param {number} [options.offsetY] Target Y position offset. Defaults to `0`.
  * @param {number} [options.duration] Total scroll animation duration in
- *   milliseconds. Defaults to `500`.
+ *   milliseconds. Defaults to {@linkcode durationDefault}.
  * @param {() => void} [options.onInterrupt] Callback to run if the scroll
  *   animation is interrupted.
  * @param {() => void} [options.onArrive] Callback to run after scrolling to the

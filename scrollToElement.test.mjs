@@ -119,11 +119,11 @@ export default (tests, packageFilesOriginUrl) => {
 
                 await page.evaluate(async (packageFilesOriginHref) => {
                   /** @type {import("./scrollToElement.mjs")} */
-                  const { default: scrollToElement } = await import(
-                    `${packageFilesOriginHref}scrollToElement.mjs`
-                  );
+                  const { default: scrollToElement, durationDefault } =
+                    await import(
+                      `${packageFilesOriginHref}scrollToElement.mjs`
+                    );
 
-                  const defaultScrollAnimationDuration = 500;
                   const scrollingElement = /** @type {Element} */ (
                     document.scrollingElement
                   );
@@ -137,7 +137,7 @@ export default (tests, packageFilesOriginUrl) => {
                     setTimeout(
                       resolve,
                       // Half the scroll animation duration.
-                      defaultScrollAnimationDuration / 2
+                      durationDefault / 2
                     )
                   );
 
@@ -153,7 +153,7 @@ export default (tests, packageFilesOriginUrl) => {
                     setTimeout(
                       resolve,
                       // The remaining scroll animation duration.
-                      defaultScrollAnimationDuration / 2 +
+                      durationDefault / 2 +
                         // Extra time for scroll animation end code to run.
                         20
                     )
@@ -217,11 +217,11 @@ export default (tests, packageFilesOriginUrl) => {
 
                 await page.evaluate(async (packageFilesOriginHref) => {
                   /** @type {import("./scrollToElement.mjs")} */
-                  const { default: scrollToElement } = await import(
-                    `${packageFilesOriginHref}scrollToElement.mjs`
-                  );
+                  const { default: scrollToElement, durationDefault } =
+                    await import(
+                      `${packageFilesOriginHref}scrollToElement.mjs`
+                    );
 
-                  const defaultScrollAnimationDuration = 500;
                   const scrollingElement = /** @type {HTMLDivElement} */ (
                     document.getElementById("scrolling-element")
                   );
@@ -238,7 +238,7 @@ export default (tests, packageFilesOriginUrl) => {
                     setTimeout(
                       resolve,
                       // Half the scroll animation duration.
-                      defaultScrollAnimationDuration / 2
+                      durationDefault / 2
                     )
                   );
 
@@ -254,7 +254,7 @@ export default (tests, packageFilesOriginUrl) => {
                     setTimeout(
                       resolve,
                       // The remaining scroll animation duration.
-                      defaultScrollAnimationDuration / 2 +
+                      durationDefault / 2 +
                         // Extra time for scroll animation end code to run.
                         20
                     )
@@ -405,11 +405,11 @@ export default (tests, packageFilesOriginUrl) => {
 
                   await page.evaluate(async (packageFilesOriginHref) => {
                     /** @type {import("./scrollToElement.mjs")} */
-                    const { default: scrollToElement } = await import(
-                      `${packageFilesOriginHref}scrollToElement.mjs`
-                    );
+                    const { default: scrollToElement, durationDefault } =
+                      await import(
+                        `${packageFilesOriginHref}scrollToElement.mjs`
+                      );
 
-                    const defaultScrollAnimationDuration = 500;
                     const scrollingElement = /** @type {Element} */ (
                       document.scrollingElement
                     );
@@ -429,7 +429,7 @@ export default (tests, packageFilesOriginUrl) => {
                       setTimeout(
                         resolve,
                         // Half the scroll animation duration.
-                        defaultScrollAnimationDuration / 2
+                        durationDefault / 2
                       )
                     );
 
@@ -445,7 +445,7 @@ export default (tests, packageFilesOriginUrl) => {
                       setTimeout(
                         resolve,
                         // The remaining scroll animation duration.
-                        defaultScrollAnimationDuration / 2 +
+                        durationDefault / 2 +
                           // Extra time for scroll animation end code to run.
                           20
                       )
@@ -504,11 +504,11 @@ export default (tests, packageFilesOriginUrl) => {
 
                   await page.evaluate(async (packageFilesOriginHref) => {
                     /** @type {import("./scrollToElement.mjs")} */
-                    const { default: scrollToElement } = await import(
-                      `${packageFilesOriginHref}scrollToElement.mjs`
-                    );
+                    const { default: scrollToElement, durationDefault } =
+                      await import(
+                        `${packageFilesOriginHref}scrollToElement.mjs`
+                      );
 
-                    const defaultScrollAnimationDuration = 500;
                     const scrollingElement = /** @type {Element} */ (
                       document.scrollingElement
                     );
@@ -534,7 +534,7 @@ export default (tests, packageFilesOriginUrl) => {
                       setTimeout(
                         resolve,
                         // Half the scroll animation duration.
-                        defaultScrollAnimationDuration / 2
+                        durationDefault / 2
                       )
                     );
 
@@ -555,7 +555,7 @@ export default (tests, packageFilesOriginUrl) => {
                       setTimeout(
                         resolve,
                         // The remaining scroll animation duration.
-                        defaultScrollAnimationDuration / 2 +
+                        durationDefault / 2 +
                           // Extra time for scroll animation end code to run.
                           20
                       )
@@ -619,11 +619,11 @@ export default (tests, packageFilesOriginUrl) => {
 
                   await page.evaluate(async (packageFilesOriginHref) => {
                     /** @type {import("./scrollToElement.mjs")} */
-                    const { default: scrollToElement } = await import(
-                      `${packageFilesOriginHref}scrollToElement.mjs`
-                    );
+                    const { default: scrollToElement, durationDefault } =
+                      await import(
+                        `${packageFilesOriginHref}scrollToElement.mjs`
+                      );
 
-                    const defaultScrollAnimationDuration = 500;
                     const scrollingElement = /** @type {Element} */ (
                       document.scrollingElement
                     );
@@ -652,7 +652,7 @@ export default (tests, packageFilesOriginUrl) => {
                       setTimeout(
                         resolve,
                         // Half the scroll animation duration.
-                        defaultScrollAnimationDuration / 2
+                        durationDefault / 2
                       )
                     );
 
@@ -676,7 +676,7 @@ export default (tests, packageFilesOriginUrl) => {
                       setTimeout(
                         resolve,
                         // The remaining scroll animation duration.
-                        defaultScrollAnimationDuration / 2 +
+                        durationDefault / 2 +
                           // Extra time for scroll animation end code to run.
                           20
                       )
@@ -691,7 +691,7 @@ export default (tests, packageFilesOriginUrl) => {
                       setTimeout(
                         resolve,
                         // The remaining scroll animation duration.
-                        defaultScrollAnimationDuration +
+                        durationDefault +
                           // Extra time for scroll animation end code to run.
                           20
                       )
@@ -755,11 +755,11 @@ export default (tests, packageFilesOriginUrl) => {
 
                   await page.evaluate(async (packageFilesOriginHref) => {
                     /** @type {import("./scrollToElement.mjs")} */
-                    const { default: scrollToElement } = await import(
-                      `${packageFilesOriginHref}scrollToElement.mjs`
-                    );
+                    const { default: scrollToElement, durationDefault } =
+                      await import(
+                        `${packageFilesOriginHref}scrollToElement.mjs`
+                      );
 
-                    const defaultScrollAnimationDuration = 500;
                     const scrollingElement = /** @type {Element} */ (
                       document.scrollingElement
                     );
@@ -790,7 +790,7 @@ export default (tests, packageFilesOriginUrl) => {
                       setTimeout(
                         resolve,
                         // Half the scroll animation duration.
-                        defaultScrollAnimationDuration / 2
+                        durationDefault / 2
                       )
                     );
 

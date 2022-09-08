@@ -3,6 +3,9 @@
 import easeInOutCubic from "./easeInOutCubic.mjs";
 import getScrollMax from "./getScrollMax.mjs";
 
+/** The {@linkcode animateScroll} option `duration` default value. */
+export const durationDefault = 500;
+
 /**
  * Calculates the scroll position at a given scroll animation moment.
  * @param {number} start Start scroll position.
@@ -31,7 +34,7 @@ function position(start, end, elapsed, duration) {
  * @param {number} [options.offsetX] Target X position offset. Defaults to `0`.
  * @param {number} [options.offsetY] Target Y position offset. Defaults to `0`.
  * @param {number} [options.duration] Total scroll animation duration in
- *   milliseconds. Defaults to `500`.
+ *   milliseconds. Defaults to {@linkcode durationDefault}.
  * @param {() => void} [options.onInterrupt] Callback to run if the scroll
  *   animation is interrupted.
  * @param {() => void} [options.onArrive] Callback to run after scrolling to the
@@ -47,7 +50,8 @@ function position(start, end, elapsed, duration) {
  * ```
  */
 export default function animateScroll(options) {
-  const { container = document.scrollingElement, duration = 500 } = options;
+  const { container = document.scrollingElement, duration = durationDefault } =
+    options;
 
   if (!(container instanceof Element))
     throw new TypeError("Option `container` must be a `Element` instance.");

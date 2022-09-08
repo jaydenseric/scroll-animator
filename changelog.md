@@ -17,6 +17,7 @@
 
 ### Minor
 
+- The modules for the functions `animateScroll` and `scrollToElement` now export `durationDefault`; the default value for each function’s `duration` option.
 - Added some runtime argument type checks.
 
 ### Patch
