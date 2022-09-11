@@ -273,99 +273,6 @@ export default (tests, packageFilesOriginUrl) => {
             );
           });
 
-          tests.add("`scrollToElement` with option `duration`.", async () => {
-            await testingPlaywrightPage(
-              browser,
-              packageDirectoryUrl,
-              packageFilesOriginUrl,
-              enableCoverage,
-              async (page) => {
-                await page.setContent(/* HTML */ `<!DOCTYPE html>
-                  <html>
-                    <head>
-                      <style>
-                        body {
-                          margin: 0;
-                        }
-
-                        #padding {
-                          padding: 200vh 200vw;
-                        }
-
-                        #target {
-                          width: 1px;
-                          height: 1px;
-                        }
-                      </style>
-                    </head>
-                    <body>
-                      <div id="padding">
-                        <div id="target"></div>
-                      </div>
-                    </body>
-                  </html>`);
-
-                await page.evaluate(async (packageFilesOriginHref) => {
-                  /** @type {import("./scrollToElement.mjs")} */
-                  const { default: scrollToElement } = await import(
-                    `${packageFilesOriginHref}scrollToElement.mjs`
-                  );
-
-                  const scrollAnimationDuration = 250;
-                  const scrollingElement = /** @type {Element} */ (
-                    document.scrollingElement
-                  );
-                  const targetElement = /** @type {HTMLDivElement} */ (
-                    document.getElementById("target")
-                  );
-
-                  scrollToElement({
-                    target: targetElement,
-                    duration: scrollAnimationDuration,
-                  });
-
-                  await new Promise((resolve) =>
-                    setTimeout(
-                      resolve,
-                      // Half the scroll animation duration.
-                      scrollAnimationDuration / 2
-                    )
-                  );
-
-                  if (
-                    !scrollingElement.scrollLeft ||
-                    !scrollingElement.scrollTop
-                  )
-                    throw new Error(
-                      `Should scroll during the scroll animation duration.`
-                    );
-
-                  await new Promise((resolve) =>
-                    setTimeout(
-                      resolve,
-                      // The remaining scroll animation duration.
-                      scrollAnimationDuration / 2 +
-                        // Extra time for scroll animation end code to run.
-                        20
-                    )
-                  );
-
-                  const targetBounds = targetElement.getBoundingClientRect();
-
-                  if (targetBounds.left !== 0)
-                    throw new Error(
-                      "Container should’ve scrolled to the target horizontally."
-                    );
-
-                  if (targetBounds.top !== 0)
-                    throw new Error(
-                      "Container should’ve scrolled to the target vertically."
-                    );
-                }, packageFilesOriginUrl.href);
-              }
-            );
-          });
-
           tests.add(
             "`scrollToElement` with options `offsetX` and `offsetY`.",
             async () => {
@@ -464,6 +371,99 @@ export default (tests, packageFilesOriginUrl) => {
               );
             }
           );
+
+          tests.add("`scrollToElement` with option `duration`.", async () => {
+            await testingPlaywrightPage(
+              browser,
+              packageDirectoryUrl,
+              packageFilesOriginUrl,
+              enableCoverage,
+              async (page) => {
+                await page.setContent(/* HTML */ `<!DOCTYPE html>
+                  <html>
+                    <head>
+                      <style>
+                        body {
+                          margin: 0;
+                        }
+
+                        #padding {
+                          padding: 200vh 200vw;
+                        }
+
+                        #target {
+                          width: 1px;
+                          height: 1px;
+                        }
+                      </style>
+                    </head>
+                    <body>
+                      <div id="padding">
+                        <div id="target"></div>
+                      </div>
+                    </body>
+                  </html>`);
+
+                await page.evaluate(async (packageFilesOriginHref) => {
+                  /** @type {import("./scrollToElement.mjs")} */
+                  const { default: scrollToElement } = await import(
+                    `${packageFilesOriginHref}scrollToElement.mjs`
+                  );
+
+                  const scrollAnimationDuration = 250;
+                  const scrollingElement = /** @type {Element} */ (
+                    document.scrollingElement
+                  );
+                  const targetElement = /** @type {HTMLDivElement} */ (
+                    document.getElementById("target")
+                  );
+
+                  scrollToElement({
+                    target: targetElement,
+                    duration: scrollAnimationDuration,
+                  });
+
+                  await new Promise((resolve) =>
+                    setTimeout(
+                      resolve,
+                      // Half the scroll animation duration.
+                      scrollAnimationDuration / 2
+                    )
+                  );
+
+                  if (
+                    !scrollingElement.scrollLeft ||
+                    !scrollingElement.scrollTop
+                  )
+                    throw new Error(
+                      `Should scroll during the scroll animation duration.`
+                    );
+
+                  await new Promise((resolve) =>
+                    setTimeout(
+                      resolve,
+                      // The remaining scroll animation duration.
+                      scrollAnimationDuration / 2 +
+                        // Extra time for scroll animation end code to run.
+                        20
+                    )
+                  );
+
+                  const targetBounds = targetElement.getBoundingClientRect();
+
+                  if (targetBounds.left !== 0)
+                    throw new Error(
+                      "Container should’ve scrolled to the target horizontally."
+                    );
+
+                  if (targetBounds.top !== 0)
+                    throw new Error(
+                      "Container should’ve scrolled to the target vertically."
+                    );
+                }, packageFilesOriginUrl.href);
+              }
+            );
+          });
 
           tests.add(
             "`scrollToElement` with option `onArrive`, non shifting target.",
