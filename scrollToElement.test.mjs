@@ -406,11 +406,12 @@ export default (tests, packageFilesOriginUrl) => {
 
                 await page.evaluate(async (packageFilesOriginHref) => {
                   /** @type {import("./scrollToElement.mjs")} */
-                  const { default: scrollToElement } = await import(
-                    `${packageFilesOriginHref}scrollToElement.mjs`
-                  );
+                  const { default: scrollToElement, durationDefault } =
+                    await import(
+                      `${packageFilesOriginHref}scrollToElement.mjs`
+                    );
 
-                  const scrollAnimationDuration = 250;
+                  const scrollAnimationDuration = durationDefault / 2;
                   const scrollingElement = /** @type {Element} */ (
                     document.scrollingElement
                   );
