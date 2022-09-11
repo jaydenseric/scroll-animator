@@ -8,6 +8,7 @@ import TestDirector from "test-director";
 
 import scrollToElement from "./scrollToElement.mjs";
 import assertBundleSize from "./test/assertBundleSize.mjs";
+import playwrightBrowserNames from "./test/playwrightBrowserNames.mjs";
 import testingPlaywrightPage from "./test/testingPlaywrightPage.mjs";
 
 const packageDirectoryUrl = new URL(".", import.meta.url);
@@ -71,18 +72,14 @@ export default (tests, packageFilesOriginUrl) => {
     }
   );
 
-  for (const browserType of /** @type {const} */ ([
-    "chromium",
-    "webkit",
-    "firefox",
-  ]))
+  for (const playwrightBrowserName of playwrightBrowserNames)
     tests.add(
-      `\`scrollToElement\` within a \`${browserType}\` browser environment.`,
+      `\`scrollToElement\` within a \`${playwrightBrowserName}\` browser environment.`,
       async () => {
-        const browser = await playwright[browserType].launch();
+        const browser = await playwright[playwrightBrowserName].launch();
 
         try {
-          const enableCoverage = browserType === "chromium";
+          const enableCoverage = playwrightBrowserName === "chromium";
           const tests = new TestDirector();
 
           tests.add("`scrollToElement` with defaults.", async () => {
@@ -146,7 +143,7 @@ export default (tests, packageFilesOriginUrl) => {
                     !scrollingElement.scrollTop
                   )
                     throw new Error(
-                      `Scroll container should scroll during the scroll animation duration.`
+                      `Should scroll during the scroll animation duration.`
                     );
 
                   await new Promise((resolve) =>
@@ -247,7 +244,7 @@ export default (tests, packageFilesOriginUrl) => {
                     !scrollingElement.scrollTop
                   )
                     throw new Error(
-                      `Scroll container should scroll during the scroll animation duration.`
+                      `Should scroll during the scroll animation duration.`
                     );
 
                   await new Promise((resolve) =>
@@ -340,7 +337,7 @@ export default (tests, packageFilesOriginUrl) => {
                     !scrollingElement.scrollTop
                   )
                     throw new Error(
-                      `Scroll container should scroll during the scroll animation duration.`
+                      `Should scroll during the scroll animation duration.`
                     );
 
                   await new Promise((resolve) =>
@@ -438,7 +435,7 @@ export default (tests, packageFilesOriginUrl) => {
                       !scrollingElement.scrollTop
                     )
                       throw new Error(
-                        `Scroll container should scroll during the scroll animation duration.`
+                        `Should scroll during the scroll animation duration.`
                       );
 
                     await new Promise((resolve) =>
@@ -543,7 +540,7 @@ export default (tests, packageFilesOriginUrl) => {
                       !scrollingElement.scrollTop
                     )
                       throw new Error(
-                        `Scroll container should scroll during the scroll animation duration.`
+                        `Should scroll during the scroll animation duration.`
                       );
 
                     if (onArriveCalls)
@@ -661,7 +658,7 @@ export default (tests, packageFilesOriginUrl) => {
                       !scrollingElement.scrollTop
                     )
                       throw new Error(
-                        `Scroll container should scroll during the scroll animation duration.`
+                        `Should scroll during the scroll animation duration.`
                       );
 
                     if (onArriveCalls)
@@ -799,7 +796,7 @@ export default (tests, packageFilesOriginUrl) => {
                       !scrollingElement.scrollTop
                     )
                       throw new Error(
-                        `Scroll container should scroll during the scroll animation duration.`
+                        `Should scroll during the scroll animation duration.`
                       );
 
                     if (onInterruptCalls)
@@ -823,7 +820,7 @@ export default (tests, packageFilesOriginUrl) => {
                       scrollingElement.scrollTop
                     )
                       throw new Error(
-                        `Scroll container shouldn’t scroll after the scroll animation is interrupted.`
+                        `Shouldn’t scroll after the scroll animation is interrupted.`
                       );
 
                     if (onInterruptCalls !== 1)

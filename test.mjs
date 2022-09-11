@@ -19,7 +19,7 @@ async function test() {
   try {
     const tests = new TestDirector();
 
-    test_animateScroll(tests);
+    test_animateScroll(tests, packageFilesOriginUrl);
     test_easeInOutCubic(tests);
     test_scrollToElement(tests, packageFilesOriginUrl);
 
