@@ -1077,6 +1077,110 @@ export default (tests, packageFilesOriginUrl) => {
             }
           );
 
+          tests.add("`animateScroll` with option `onArrive`.", async () => {
+            await testingPlaywrightPage(
+              browser,
+              packageDirectoryUrl,
+              packageFilesOriginUrl,
+              enableCoverage,
+              async (page) => {
+                await page.setContent(/* HTML */ `<!DOCTYPE html>
+                  <html>
+                    <head>
+                      <style>
+                        #scrolling-element {
+                          width: 1000px;
+                          height: 1000px;
+                          overflow: auto;
+                        }
+
+                        #padding {
+                          width: 200%;
+                          height: 200%;
+                        }
+                      </style>
+                    </head>
+                    <body>
+                      <div id="scrolling-element">
+                        <div id="padding"></div>
+                      </div>
+                    </body>
+                  </html>`);
+
+                await page.evaluate(async (packageFilesOriginHref) => {
+                  /** @type {import("./animateScroll.mjs")} */
+                  const { default: animateScroll, durationDefault } =
+                    await import(`${packageFilesOriginHref}animateScroll.mjs`);
+
+                  const scrollingElement = /** @type {HTMLDivElement} */ (
+                    document.getElementById("scrolling-element")
+                  );
+
+                  const targetX = 400;
+                  const targetY = 600;
+
+                  let onArriveCalls = 0;
+
+                  animateScroll({
+                    container: scrollingElement,
+                    targetX,
+                    targetY,
+                    onArrive(...args) {
+                      onArriveCalls++;
+
+                      if (args.length)
+                        throw new Error(
+                          "`animateScroll` option `onArrive` shouldn’t have arguments."
+                        );
+                    },
+                  });
+
+                  await new Promise((resolve) =>
+                    setTimeout(
+                      resolve,
+                      // Half the scroll animation duration.
+                      durationDefault / 2
+                    )
+                  );
+
+                  if (
+                    !scrollingElement.scrollLeft ||
+                    !scrollingElement.scrollTop
+                  )
+                    throw new Error(
+                      `Should scroll during the scroll animation duration.`
+                    );
+
+                  if (onArriveCalls)
+                    throw new Error(
+                      "`animateScroll` option `onArrive` shouldn’t be called before the scroll animation finishes."
+                    );
+
+                  await new Promise((resolve) =>
+                    setTimeout(
+                      resolve,
+                      // The remaining scroll animation duration.
+                      durationDefault / 2 +
+                        // Extra time for scroll animation end code to run.
+                        20
+                    )
+                  );
+
+                  if (scrollingElement.scrollLeft !== targetX)
+                    throw new Error("Incorrect final scroll left position.");
+
+                  if (scrollingElement.scrollTop !== targetY)
+                    throw new Error("Incorrect final scroll top position.");
+
+                  if (onArriveCalls !== 1)
+                    throw new Error(
+                      "`animateScroll` option `onArrive` should’ve been called once after the scroll animation finishes."
+                    );
+                }, packageFilesOriginUrl.href);
+              }
+            );
+          });
+
           await tests.run(true);
         } finally {
           await browser.close();
