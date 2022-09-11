@@ -1181,6 +1181,126 @@ export default (tests, packageFilesOriginUrl) => {
             );
           });
 
+          tests.add(
+            "`animateScroll` with options `onArrive` and `onInterrupt`, scroll animation interruption.",
+            async () => {
+              await testingPlaywrightPage(
+                browser,
+                packageDirectoryUrl,
+                packageFilesOriginUrl,
+                enableCoverage,
+                async (page) => {
+                  await page.setContent(/* HTML */ `<!DOCTYPE html>
+                    <html>
+                      <head>
+                        <style>
+                          #scrolling-element {
+                            width: 1000px;
+                            height: 1000px;
+                            overflow: auto;
+                          }
+
+                          #padding {
+                            width: 200%;
+                            height: 200%;
+                          }
+                        </style>
+                      </head>
+                      <body>
+                        <div id="scrolling-element">
+                          <div id="padding"></div>
+                        </div>
+                      </body>
+                    </html>`);
+
+                  await page.evaluate(async (packageFilesOriginHref) => {
+                    /** @type {import("./animateScroll.mjs")} */
+                    const { default: animateScroll, durationDefault } =
+                      await import(
+                        `${packageFilesOriginHref}animateScroll.mjs`
+                      );
+
+                    const scrollingElement = /** @type {HTMLDivElement} */ (
+                      document.getElementById("scrolling-element")
+                    );
+
+                    let onInterruptCalls = 0;
+
+                    animateScroll({
+                      container: scrollingElement,
+                      targetX: 400,
+                      targetY: 600,
+                      onArrive() {
+                        throw new Error(
+                          "`animateScroll` option `onArrive` shouldn’t have run."
+                        );
+                      },
+                      onInterrupt(...args) {
+                        onInterruptCalls++;
+
+                        if (args.length)
+                          throw new Error(
+                            "`animateScroll` option `onInterrupt` shouldn’t have arguments."
+                          );
+                      },
+                    });
+
+                    await new Promise((resolve) =>
+                      setTimeout(
+                        resolve,
+                        // Half the scroll animation duration.
+                        durationDefault / 2
+                      )
+                    );
+
+                    if (
+                      !scrollingElement.scrollLeft ||
+                      !scrollingElement.scrollTop
+                    )
+                      throw new Error(
+                        `Should scroll during the scroll animation duration.`
+                      );
+
+                    if (onInterruptCalls)
+                      throw new Error(
+                        "`animateScroll` option `onInterrupt` shouldn’t be called before the scroll animation is interrupted."
+                      );
+
+                    const interruptScrollLeft = 0;
+                    const interruptScrollTop = 0;
+
+                    // Interrupt the scroll animation.
+                    scrollingElement.scrollTo(
+                      interruptScrollLeft,
+                      interruptScrollTop
+                    );
+
+                    await new Promise((resolve) =>
+                      setTimeout(
+                        resolve,
+                        // Enough time for the interruption to have been handled.
+                        20
+                      )
+                    );
+
+                    if (
+                      scrollingElement.scrollLeft !== interruptScrollLeft ||
+                      scrollingElement.scrollTop !== interruptScrollTop
+                    )
+                      throw new Error(
+                        `Shouldn’t scroll after the scroll animation is interrupted.`
+                      );
+
+                    if (onInterruptCalls !== 1)
+                      throw new Error(
+                        "`animateScroll` option `onInterrupt` should’ve been called once after the scroll animation was interrupted."
+                      );
+                  }, packageFilesOriginUrl.href);
+                }
+              );
+            }
+          );
+
           await tests.run(true);
         } finally {
           await browser.close();

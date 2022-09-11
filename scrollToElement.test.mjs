@@ -804,8 +804,14 @@ export default (tests, packageFilesOriginUrl) => {
                         "`scrollToElement` option `onInterrupt` shouldn’t be called before the scroll animation is interrupted."
                       );
 
+                    const interruptScrollLeft = 0;
+                    const interruptScrollTop = 0;
+
                     // Interrupt the scroll animation.
-                    scrollingElement.scrollTo(0, 0);
+                    scrollingElement.scrollTo(
+                      interruptScrollLeft,
+                      interruptScrollTop
+                    );
 
                     await new Promise((resolve) =>
                       setTimeout(
@@ -816,8 +822,8 @@ export default (tests, packageFilesOriginUrl) => {
                     );
 
                     if (
-                      scrollingElement.scrollLeft ||
-                      scrollingElement.scrollTop
+                      scrollingElement.scrollLeft !== interruptScrollLeft ||
+                      scrollingElement.scrollTop !== interruptScrollTop
                     )
                       throw new Error(
                         `Shouldn’t scroll after the scroll animation is interrupted.`
