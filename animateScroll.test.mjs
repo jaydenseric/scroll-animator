@@ -57,6 +57,89 @@ export default (tests, packageFilesOriginUrl) => {
           const tests = new TestDirector();
 
           tests.add(
+            "`animateScroll` with option `container` default, options `targetX` and `targetY` < maximums.",
+            async () => {
+              await testingPlaywrightPage(
+                browser,
+                packageDirectoryUrl,
+                packageFilesOriginUrl,
+                enableCoverage,
+                async (page) => {
+                  await page.setContent(/* HTML */ `<!DOCTYPE html>
+                    <html>
+                      <head>
+                        <style>
+                          body {
+                            margin: 0;
+                          }
+
+                          #padding {
+                            padding: 200vh 200vw;
+                          }
+                        </style>
+                      </head>
+                      <body>
+                        <div id="padding"></div>
+                      </body>
+                    </html>`);
+
+                  await page.evaluate(async (packageFilesOriginHref) => {
+                    /** @type {import("./animateScroll.mjs")} */
+                    const { default: animateScroll, durationDefault } =
+                      await import(
+                        `${packageFilesOriginHref}animateScroll.mjs`
+                      );
+
+                    const scrollingElement = /** @type {Element} */ (
+                      document.scrollingElement
+                    );
+
+                    // < the maximum.
+                    const targetX = 50;
+
+                    // < the maximum.
+                    const targetY = 100;
+
+                    animateScroll({ targetX, targetY });
+
+                    await new Promise((resolve) =>
+                      setTimeout(
+                        resolve,
+                        // Half the scroll animation duration.
+                        durationDefault / 2
+                      )
+                    );
+
+                    if (
+                      !scrollingElement.scrollLeft ||
+                      !scrollingElement.scrollTop
+                    )
+                      throw new Error(
+                        `Should scroll during the scroll animation duration.`
+                      );
+
+                    await new Promise((resolve) =>
+                      setTimeout(
+                        resolve,
+                        // The remaining scroll animation duration.
+                        durationDefault / 2 +
+                          // Extra time for scroll animation end code to run.
+                          20
+                      )
+                    );
+
+                    if (scrollingElement.scrollLeft !== targetX)
+                      throw new Error("Incorrect final scroll left position.");
+
+                    if (scrollingElement.scrollTop !== targetY)
+                      throw new Error("Incorrect final scroll top position.");
+                  }, packageFilesOriginUrl.href);
+                }
+              );
+            }
+          );
+
+          tests.add(
             "`animateScroll` with option `container` an element, options `targetX` and `targetY` < maximums.",
             async () => {
               await testingPlaywrightPage(
@@ -99,7 +182,10 @@ export default (tests, packageFilesOriginUrl) => {
                       document.getElementById("scrolling-element")
                     );
 
+                    // < the maximum.
                     const targetX = 400;
+
+                    // < the maximum.
                     const targetY = 600;
 
                     animateScroll({
@@ -1116,7 +1202,10 @@ export default (tests, packageFilesOriginUrl) => {
                     document.getElementById("scrolling-element")
                   );
 
+                  // < the maximum, for simplicity.
                   const targetX = 400;
+
+                  // < the maximum, for simplicity.
                   const targetY = 600;
 
                   let onArriveCalls = 0;
