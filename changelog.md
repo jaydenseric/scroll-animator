@@ -40,6 +40,12 @@
   - Resolves the minified bundle and its gzipped size for debugging in tests.
 - Added headless browser tests.
 - Configured Prettier option `singleQuote` to the default, `false`.
+- Revamped the readme:
+  - Removed the badges.
+  - Removed the detailed API docs. The JSDoc comments and TypeScript types in the exported modules are now the primary documentation.
+  - Renamed some headings.
+  - Changed some links.
+  - Added information about Deno, import maps, TypeScript config and [optimal JavaScript module design](https://jaydenseric.com/blog/optimal-javascript-module-design).
 - Amended the changelog entry for v4.0.0.
 
 ## 4.0.0
