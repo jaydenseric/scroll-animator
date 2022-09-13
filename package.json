@@ -38,10 +38,10 @@
   },
   "browserslist": "Node 14.17 - 15 and Node < 15, Node 16 - 17 and Node < 17, Node >= 18, > 0.5%, not OperaMini all, not dead",
   "devDependencies": {
-    "@types/node": "^18.7.16",
+    "@types/node": "^18.7.17",
     "coverage-node": "^8.0.0",
     "esbuild": "^0.15.7",
-    "eslint": "^8.23.0",
+    "eslint": "^8.23.1",
     "eslint-plugin-simple-import-sort": "^8.0.0",
     "gzip-size": "^7.0.0",
     "playwright": "^1.25.2",
