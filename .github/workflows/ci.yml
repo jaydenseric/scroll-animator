@@ -14,5 +14,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - name: npm install and test
-        run: npm install-test
+      - name: npm install
+        run: npm install
+      - name: "Install Playwright browser dependencies"
+        run: npm run playwright-install-deps
+      - name: npm test
+        run: npm test
